@@ -1,0 +1,3334 @@
+[
+  {
+    "candidate_id": "DEMO-001",
+    "name": "Ayesha Khan",
+    "applied_role": "ML/AI",
+    "operational": {
+      "current_city": "Lahore",
+      "onsite_available": "Yes",
+      "shift_available": "Yes"
+    },
+    "resume": {
+      "filename": "demo_001_resume.pdf",
+      "parse_status": "success",
+      "pages": 1
+    },
+    "manual_review_required": false,
+    "evidence": {
+      "python": {
+        "mentioned": true,
+        "explicit_use": true,
+        "ecosystem_used": true
+      },
+      "machine_learning": {
+        "models_found": [
+          "logistic regression",
+          "random forest"
+        ],
+        "workflow": {
+          "model_training": true,
+          "train_test": true,
+          "model_comparison": true,
+          "feature_work": true,
+          "evaluation": true,
+          "evaluation_reasoning": true,
+          "interface_or_deployment": true
+        }
+      },
+      "data_handling": {
+        "cleaning_or_preprocessing": true,
+        "missing_values": true,
+        "categorical_encoding": true,
+        "feature_work": true,
+        "eda": false,
+        "class_imbalance": false
+      },
+      "evaluation": {
+        "metrics": [
+          "accuracy",
+          "f1-score",
+          "precision",
+          "recall",
+          "roc-auc"
+        ],
+        "confusion_matrix": false,
+        "classification_report": false,
+        "reasoning": true
+      },
+      "ml_libraries": {
+        "found": [
+          "scikit-learn"
+        ],
+        "used_in_body": false
+      },
+      "git_github": {
+        "mentioned": true,
+        "demonstrated": true
+      },
+      "practical_exposure": {
+        "strong": false,
+        "light": true
+      },
+      "bonus": {
+        "mentioned": [
+          "sql",
+          "streamlit"
+        ],
+        "demonstrated": [
+          "streamlit"
+        ]
+      },
+      "snippets": {
+        "python": [
+          "Using Python, Pandas and NumPy, cleaned and preprocessed customer data, handled missing values and categorical variables, and performed feature engineering."
+        ],
+        "ml_workflow": [
+          "Ayesha Khan BS Student - 7th Semester Customer Churn Prediction.",
+          "Trained Logistic Regression and Random Forest models using a train-test split and compared their performance.",
+          "Built a Streamlit prediction interface and published the project to GitHub with documentation."
+        ],
+        "data_handling": [
+          "Using Python, Pandas and NumPy, cleaned and preprocessed customer data, handled missing values and categorical variables, and performed feature engineering.",
+          "Cleaned and preprocessed customer data, handled missing values and categorical variables, and performed feature engineering."
+        ],
+        "evaluation": [
+          "Evaluated models using accuracy, precision, recall, F1-score and ROC-AUC and selected the final model based on evaluation results."
+        ],
+        "git_github": [
+          "Built a Streamlit prediction interface and published the project to GitHub with documentation."
+        ],
+        "additional_technology": [
+          "Built a Streamlit prediction interface and published the project to GitHub with documentation."
+        ]
+      }
+    },
+    "assessment": {
+      "scores": {
+        "python": 3,
+        "ml_fundamentals": 3,
+        "project_evidence": 3,
+        "data_handling": 3,
+        "model_evaluation": 2,
+        "ml_libraries": 2,
+        "git_github": 2,
+        "practical_exposure": 1,
+        "bonus_exposure": 1
+      },
+      "total_score": 20,
+      "max_score": 22,
+      "technical_review_priority": "PRIORITY_REVIEW",
+      "operational_status": "READY",
+      "operational_reason": "Lahore-based and available for onsite work and the required shift."
+    }
+  },
+  {
+    "candidate_id": "DEMO-002",
+    "name": "Hamza Ali",
+    "applied_role": "ML/AI",
+    "operational": {
+      "current_city": "Lahore",
+      "onsite_available": "Yes",
+      "shift_available": "Yes"
+    },
+    "resume": {
+      "filename": "demo_002_resume.pdf",
+      "parse_status": "success",
+      "pages": 1
+    },
+    "manual_review_required": false,
+    "evidence": {
+      "python": {
+        "mentioned": true,
+        "explicit_use": true,
+        "ecosystem_used": true
+      },
+      "machine_learning": {
+        "models_found": [
+          "logistic regression",
+          "random forest"
+        ],
+        "workflow": {
+          "model_training": true,
+          "train_test": true,
+          "model_comparison": true,
+          "feature_work": true,
+          "evaluation": true,
+          "evaluation_reasoning": true,
+          "interface_or_deployment": true
+        }
+      },
+      "data_handling": {
+        "cleaning_or_preprocessing": true,
+        "missing_values": true,
+        "categorical_encoding": true,
+        "feature_work": true,
+        "eda": false,
+        "class_imbalance": false
+      },
+      "evaluation": {
+        "metrics": [
+          "accuracy",
+          "f1-score",
+          "precision",
+          "recall",
+          "roc-auc"
+        ],
+        "confusion_matrix": false,
+        "classification_report": false,
+        "reasoning": true
+      },
+      "ml_libraries": {
+        "found": [
+          "scikit-learn"
+        ],
+        "used_in_body": false
+      },
+      "git_github": {
+        "mentioned": true,
+        "demonstrated": true
+      },
+      "practical_exposure": {
+        "strong": false,
+        "light": true
+      },
+      "bonus": {
+        "mentioned": [
+          "sql",
+          "streamlit"
+        ],
+        "demonstrated": [
+          "streamlit"
+        ]
+      },
+      "snippets": {
+        "python": [
+          "Using Python, Pandas and NumPy, cleaned and preprocessed customer data, handled missing values and categorical variables, and performed feature engineering."
+        ],
+        "ml_workflow": [
+          "Hamza Ali BS Student - 8th Semester Customer Churn Prediction.",
+          "Trained Logistic Regression and Random Forest models using a train-test split and compared their performance.",
+          "Built a Streamlit prediction interface and published the project to GitHub with documentation."
+        ],
+        "data_handling": [
+          "Using Python, Pandas and NumPy, cleaned and preprocessed customer data, handled missing values and categorical variables, and performed feature engineering.",
+          "Cleaned and preprocessed customer data, handled missing values and categorical variables, and performed feature engineering."
+        ],
+        "evaluation": [
+          "Evaluated models using accuracy, precision, recall, F1-score and ROC-AUC and selected the final model based on evaluation results."
+        ],
+        "git_github": [
+          "Built a Streamlit prediction interface and published the project to GitHub with documentation."
+        ],
+        "additional_technology": [
+          "Built a Streamlit prediction interface and published the project to GitHub with documentation."
+        ]
+      }
+    },
+    "assessment": {
+      "scores": {
+        "python": 3,
+        "ml_fundamentals": 3,
+        "project_evidence": 3,
+        "data_handling": 3,
+        "model_evaluation": 2,
+        "ml_libraries": 2,
+        "git_github": 2,
+        "practical_exposure": 1,
+        "bonus_exposure": 1
+      },
+      "total_score": 20,
+      "max_score": 22,
+      "technical_review_priority": "PRIORITY_REVIEW",
+      "operational_status": "READY",
+      "operational_reason": "Lahore-based and available for onsite work and the required shift."
+    }
+  },
+  {
+    "candidate_id": "DEMO-003",
+    "name": "Sara Ahmed",
+    "applied_role": "ML/AI",
+    "operational": {
+      "current_city": "Lahore",
+      "onsite_available": "Yes",
+      "shift_available": "Yes"
+    },
+    "resume": {
+      "filename": "demo_003_resume.pdf",
+      "parse_status": "success",
+      "pages": 1
+    },
+    "manual_review_required": false,
+    "evidence": {
+      "python": {
+        "mentioned": true,
+        "explicit_use": true,
+        "ecosystem_used": true
+      },
+      "machine_learning": {
+        "models_found": [
+          "logistic regression",
+          "decision tree",
+          "random forest"
+        ],
+        "workflow": {
+          "model_training": true,
+          "train_test": true,
+          "model_comparison": true,
+          "feature_work": true,
+          "evaluation": true,
+          "evaluation_reasoning": true,
+          "interface_or_deployment": false
+        }
+      },
+      "data_handling": {
+        "cleaning_or_preprocessing": false,
+        "missing_values": true,
+        "categorical_encoding": true,
+        "feature_work": true,
+        "eda": false,
+        "class_imbalance": true
+      },
+      "evaluation": {
+        "metrics": [
+          "f1-score",
+          "precision",
+          "recall",
+          "roc-auc"
+        ],
+        "confusion_matrix": false,
+        "classification_report": false,
+        "reasoning": true
+      },
+      "ml_libraries": {
+        "found": [
+          "scikit-learn"
+        ],
+        "used_in_body": false
+      },
+      "git_github": {
+        "mentioned": true,
+        "demonstrated": true
+      },
+      "practical_exposure": {
+        "strong": false,
+        "light": false
+      },
+      "bonus": {
+        "mentioned": [
+          "sql"
+        ],
+        "demonstrated": []
+      },
+      "snippets": {
+        "python": [
+          "Using Python and Pandas, worked with approximately 8000 records, inspected missing values and class imbalance, encoded categorical variables and performed feature selection."
+        ],
+        "ml_workflow": [
+          "Sara Ahmed BS Student - Graduated Loan Default Prediction System.",
+          "Compared Logistic Regression, Decision Tree and Random Forest using a train-test split."
+        ],
+        "data_handling": [
+          "Using Python and Pandas, worked with approximately 8000 records, inspected missing values and class imbalance, encoded categorical variables and performed feature selection.",
+          "Worked with approximately 8000 records, inspected missing values and class imbalance, encoded categorical variables and performed feature selection."
+        ],
+        "evaluation": [
+          "Evaluated models using precision, recall, F1-score and ROC-AUC.",
+          "Recall was prioritized because false negatives were more costly for the problem."
+        ],
+        "git_github": [
+          "Published the project to GitHub with a detailed README."
+        ],
+        "additional_technology": []
+      }
+    },
+    "assessment": {
+      "scores": {
+        "python": 3,
+        "ml_fundamentals": 3,
+        "project_evidence": 3,
+        "data_handling": 3,
+        "model_evaluation": 2,
+        "ml_libraries": 2,
+        "git_github": 2,
+        "practical_exposure": 0,
+        "bonus_exposure": 1
+      },
+      "total_score": 19,
+      "max_score": 22,
+      "technical_review_priority": "PRIORITY_REVIEW",
+      "operational_status": "READY",
+      "operational_reason": "Lahore-based and available for onsite work and the required shift."
+    }
+  },
+  {
+    "candidate_id": "DEMO-004",
+    "name": "Usman Raza",
+    "applied_role": "ML/AI",
+    "operational": {
+      "current_city": "Lahore",
+      "onsite_available": "Yes",
+      "shift_available": "Yes"
+    },
+    "resume": {
+      "filename": "demo_004_resume.pdf",
+      "parse_status": "success",
+      "pages": 1
+    },
+    "manual_review_required": false,
+    "evidence": {
+      "python": {
+        "mentioned": true,
+        "explicit_use": true,
+        "ecosystem_used": true
+      },
+      "machine_learning": {
+        "models_found": [
+          "logistic regression"
+        ],
+        "workflow": {
+          "model_training": false,
+          "train_test": true,
+          "model_comparison": false,
+          "feature_work": false,
+          "evaluation": true,
+          "evaluation_reasoning": false,
+          "interface_or_deployment": false
+        }
+      },
+      "data_handling": {
+        "cleaning_or_preprocessing": true,
+        "missing_values": false,
+        "categorical_encoding": false,
+        "feature_work": false,
+        "eda": false,
+        "class_imbalance": false
+      },
+      "evaluation": {
+        "metrics": [
+          "accuracy"
+        ],
+        "confusion_matrix": true,
+        "classification_report": false,
+        "reasoning": false
+      },
+      "ml_libraries": {
+        "found": [
+          "scikit-learn"
+        ],
+        "used_in_body": true
+      },
+      "git_github": {
+        "mentioned": true,
+        "demonstrated": false
+      },
+      "practical_exposure": {
+        "strong": false,
+        "light": true
+      },
+      "bonus": {
+        "mentioned": [
+          "sql"
+        ],
+        "demonstrated": []
+      },
+      "snippets": {
+        "python": [
+          "Using Python and Pandas, preprocessed student data and trained a Logistic Regression classification model using Scikit-learn.",
+          "Preprocessed student data and trained a Logistic Regression classification model using Scikit-learn."
+        ],
+        "ml_workflow": [
+          "Usman Raza BS Student - 7th Semester Student Performance Prediction.",
+          "Using Python and Pandas, preprocessed student data and trained a Logistic Regression classification model using Scikit-learn.",
+          "Preprocessed student data and trained a Logistic Regression classification model using Scikit-learn.",
+          "Used a train-test split and evaluated the model using accuracy and a confusion matrix."
+        ],
+        "data_handling": [
+          "Using Python and Pandas, preprocessed student data and trained a Logistic Regression classification model using Scikit-learn.",
+          "Preprocessed student data and trained a Logistic Regression classification model using Scikit-learn."
+        ],
+        "evaluation": [
+          "Used a train-test split and evaluated the model using accuracy and a confusion matrix."
+        ],
+        "git_github": [],
+        "additional_technology": []
+      }
+    },
+    "assessment": {
+      "scores": {
+        "python": 2,
+        "ml_fundamentals": 1,
+        "project_evidence": 2,
+        "data_handling": 1,
+        "model_evaluation": 2,
+        "ml_libraries": 1,
+        "git_github": 1,
+        "practical_exposure": 1,
+        "bonus_exposure": 1
+      },
+      "total_score": 12,
+      "max_score": 22,
+      "technical_review_priority": "GOOD_POTENTIAL",
+      "operational_status": "READY",
+      "operational_reason": "Lahore-based and available for onsite work and the required shift."
+    }
+  },
+  {
+    "candidate_id": "DEMO-005",
+    "name": "Hira Malik",
+    "applied_role": "ML/AI",
+    "operational": {
+      "current_city": "Lahore",
+      "onsite_available": "Yes",
+      "shift_available": "Yes"
+    },
+    "resume": {
+      "filename": "demo_005_resume.pdf",
+      "parse_status": "success",
+      "pages": 1
+    },
+    "manual_review_required": false,
+    "evidence": {
+      "python": {
+        "mentioned": true,
+        "explicit_use": true,
+        "ecosystem_used": true
+      },
+      "machine_learning": {
+        "models_found": [
+          "logistic regression"
+        ],
+        "workflow": {
+          "model_training": false,
+          "train_test": true,
+          "model_comparison": false,
+          "feature_work": false,
+          "evaluation": true,
+          "evaluation_reasoning": false,
+          "interface_or_deployment": false
+        }
+      },
+      "data_handling": {
+        "cleaning_or_preprocessing": true,
+        "missing_values": false,
+        "categorical_encoding": false,
+        "feature_work": false,
+        "eda": false,
+        "class_imbalance": false
+      },
+      "evaluation": {
+        "metrics": [
+          "accuracy"
+        ],
+        "confusion_matrix": true,
+        "classification_report": false,
+        "reasoning": false
+      },
+      "ml_libraries": {
+        "found": [
+          "scikit-learn"
+        ],
+        "used_in_body": true
+      },
+      "git_github": {
+        "mentioned": true,
+        "demonstrated": false
+      },
+      "practical_exposure": {
+        "strong": false,
+        "light": true
+      },
+      "bonus": {
+        "mentioned": [
+          "sql"
+        ],
+        "demonstrated": []
+      },
+      "snippets": {
+        "python": [
+          "Using Python and Pandas, preprocessed student data and trained a Logistic Regression classification model using Scikit-learn.",
+          "Preprocessed student data and trained a Logistic Regression classification model using Scikit-learn."
+        ],
+        "ml_workflow": [
+          "Hira Malik BS Student - 8th Semester Student Performance Prediction.",
+          "Using Python and Pandas, preprocessed student data and trained a Logistic Regression classification model using Scikit-learn.",
+          "Preprocessed student data and trained a Logistic Regression classification model using Scikit-learn.",
+          "Used a train-test split and evaluated the model using accuracy and a confusion matrix."
+        ],
+        "data_handling": [
+          "Using Python and Pandas, preprocessed student data and trained a Logistic Regression classification model using Scikit-learn.",
+          "Preprocessed student data and trained a Logistic Regression classification model using Scikit-learn."
+        ],
+        "evaluation": [
+          "Used a train-test split and evaluated the model using accuracy and a confusion matrix."
+        ],
+        "git_github": [],
+        "additional_technology": []
+      }
+    },
+    "assessment": {
+      "scores": {
+        "python": 2,
+        "ml_fundamentals": 1,
+        "project_evidence": 2,
+        "data_handling": 1,
+        "model_evaluation": 2,
+        "ml_libraries": 1,
+        "git_github": 1,
+        "practical_exposure": 1,
+        "bonus_exposure": 1
+      },
+      "total_score": 12,
+      "max_score": 22,
+      "technical_review_priority": "GOOD_POTENTIAL",
+      "operational_status": "READY",
+      "operational_reason": "Lahore-based and available for onsite work and the required shift."
+    }
+  },
+  {
+    "candidate_id": "DEMO-006",
+    "name": "Bilal Ahmad",
+    "applied_role": "ML/AI",
+    "operational": {
+      "current_city": "Lahore",
+      "onsite_available": "Yes",
+      "shift_available": "Yes"
+    },
+    "resume": {
+      "filename": "demo_006_resume.pdf",
+      "parse_status": "success",
+      "pages": 1
+    },
+    "manual_review_required": false,
+    "evidence": {
+      "python": {
+        "mentioned": true,
+        "explicit_use": true,
+        "ecosystem_used": false
+      },
+      "machine_learning": {
+        "models_found": [],
+        "workflow": {
+          "model_training": true,
+          "train_test": false,
+          "model_comparison": false,
+          "feature_work": false,
+          "evaluation": false,
+          "evaluation_reasoning": false,
+          "interface_or_deployment": false
+        }
+      },
+      "data_handling": {
+        "cleaning_or_preprocessing": false,
+        "missing_values": false,
+        "categorical_encoding": false,
+        "feature_work": false,
+        "eda": false,
+        "class_imbalance": false
+      },
+      "evaluation": {
+        "metrics": [],
+        "confusion_matrix": false,
+        "classification_report": false,
+        "reasoning": false
+      },
+      "ml_libraries": {
+        "found": [
+          "pytorch",
+          "tensorflow"
+        ],
+        "used_in_body": false
+      },
+      "git_github": {
+        "mentioned": true,
+        "demonstrated": false
+      },
+      "practical_exposure": {
+        "strong": false,
+        "light": false
+      },
+      "bonus": {
+        "mentioned": [
+          "aws",
+          "docker",
+          "generative ai",
+          "langchain",
+          "rag",
+          "sql"
+        ],
+        "demonstrated": [
+          "docker",
+          "sql"
+        ]
+      },
+      "snippets": {
+        "python": [
+          "Developed an AI chatbot using Python and AI technologies."
+        ],
+        "ml_workflow": [
+          "Machine Learning Prediction System.",
+          "Built a machine learning model for prediction."
+        ],
+        "data_handling": [],
+        "evaluation": [],
+        "git_github": [
+          "Bilal Ahmad BS Student - Graduated Docker, SQL, Git, GitHub Fundamentals AI Chatbot."
+        ],
+        "additional_technology": [
+          "Bilal Ahmad BS Student - Graduated Docker, SQL, Git, GitHub Fundamentals AI Chatbot."
+        ]
+      }
+    },
+    "assessment": {
+      "scores": {
+        "python": 1,
+        "ml_fundamentals": 1,
+        "project_evidence": 1,
+        "data_handling": 0,
+        "model_evaluation": 0,
+        "ml_libraries": 1,
+        "git_github": 1,
+        "practical_exposure": 0,
+        "bonus_exposure": 1
+      },
+      "total_score": 6,
+      "max_score": 22,
+      "technical_review_priority": "DEVELOPING_PROFILE",
+      "operational_status": "READY",
+      "operational_reason": "Lahore-based and available for onsite work and the required shift."
+    }
+  },
+  {
+    "candidate_id": "DEMO-007",
+    "name": "Zainab Noor",
+    "applied_role": "ML/AI",
+    "operational": {
+      "current_city": "Lahore",
+      "onsite_available": "Yes",
+      "shift_available": "Yes"
+    },
+    "resume": {
+      "filename": "demo_007_resume.pdf",
+      "parse_status": "success",
+      "pages": 1
+    },
+    "manual_review_required": false,
+    "evidence": {
+      "python": {
+        "mentioned": true,
+        "explicit_use": false,
+        "ecosystem_used": true
+      },
+      "machine_learning": {
+        "models_found": [],
+        "workflow": {
+          "model_training": false,
+          "train_test": false,
+          "model_comparison": false,
+          "feature_work": false,
+          "evaluation": false,
+          "evaluation_reasoning": false,
+          "interface_or_deployment": false
+        }
+      },
+      "data_handling": {
+        "cleaning_or_preprocessing": false,
+        "missing_values": false,
+        "categorical_encoding": false,
+        "feature_work": false,
+        "eda": false,
+        "class_imbalance": false
+      },
+      "evaluation": {
+        "metrics": [],
+        "confusion_matrix": false,
+        "classification_report": false,
+        "reasoning": false
+      },
+      "ml_libraries": {
+        "found": [],
+        "used_in_body": false
+      },
+      "git_github": {
+        "mentioned": false,
+        "demonstrated": false
+      },
+      "practical_exposure": {
+        "strong": false,
+        "light": false
+      },
+      "bonus": {
+        "mentioned": [],
+        "demonstrated": []
+      },
+      "snippets": {
+        "python": [
+          "Zainab Noor BS Student - 7th Semester Python Practice Projects.",
+          "Completed beginner Python exercises and learned basic data analysis using Pandas."
+        ],
+        "ml_workflow": [
+          "Currently learning machine learning classification concepts."
+        ],
+        "data_handling": [],
+        "evaluation": [],
+        "git_github": [],
+        "additional_technology": []
+      }
+    },
+    "assessment": {
+      "scores": {
+        "python": 1,
+        "ml_fundamentals": 0,
+        "project_evidence": 0,
+        "data_handling": 0,
+        "model_evaluation": 0,
+        "ml_libraries": 0,
+        "git_github": 0,
+        "practical_exposure": 0,
+        "bonus_exposure": 0
+      },
+      "total_score": 1,
+      "max_score": 22,
+      "technical_review_priority": "INSUFFICIENT_EVIDENCE",
+      "operational_status": "READY",
+      "operational_reason": "Lahore-based and available for onsite work and the required shift."
+    }
+  },
+  {
+    "candidate_id": "DEMO-008",
+    "name": "Ali Hassan",
+    "applied_role": "ML/AI",
+    "operational": {
+      "current_city": "Islamabad",
+      "onsite_available": "Yes",
+      "shift_available": "Yes"
+    },
+    "resume": {
+      "filename": "demo_008_resume.pdf",
+      "parse_status": "success",
+      "pages": 1
+    },
+    "manual_review_required": false,
+    "evidence": {
+      "python": {
+        "mentioned": true,
+        "explicit_use": false,
+        "ecosystem_used": false
+      },
+      "machine_learning": {
+        "models_found": [
+          "logistic regression"
+        ],
+        "workflow": {
+          "model_training": false,
+          "train_test": false,
+          "model_comparison": false,
+          "feature_work": false,
+          "evaluation": true,
+          "evaluation_reasoning": false,
+          "interface_or_deployment": true
+        }
+      },
+      "data_handling": {
+        "cleaning_or_preprocessing": false,
+        "missing_values": false,
+        "categorical_encoding": false,
+        "feature_work": false,
+        "eda": false,
+        "class_imbalance": false
+      },
+      "evaluation": {
+        "metrics": [
+          "accuracy",
+          "f1-score"
+        ],
+        "confusion_matrix": false,
+        "classification_report": false,
+        "reasoning": false
+      },
+      "ml_libraries": {
+        "found": [
+          "scikit-learn"
+        ],
+        "used_in_body": false
+      },
+      "git_github": {
+        "mentioned": true,
+        "demonstrated": false
+      },
+      "practical_exposure": {
+        "strong": false,
+        "light": false
+      },
+      "bonus": {
+        "mentioned": [
+          "fastapi",
+          "langchain",
+          "rag"
+        ],
+        "demonstrated": [
+          "fastapi",
+          "rag"
+        ]
+      },
+      "snippets": {
+        "python": [
+          "Built a Python RAG application that retrieves document chunks and generates grounded answers."
+        ],
+        "ml_workflow": [
+          "Also trained a Logistic Regression classifier and evaluated it using accuracy and F1-score."
+        ],
+        "data_handling": [],
+        "evaluation": [
+          "Also trained a Logistic Regression classifier and evaluated it using accuracy and F1-score."
+        ],
+        "git_github": [
+          "Built a FastAPI endpoint and published project code to GitHub."
+        ],
+        "additional_technology": [
+          "Built a Python RAG application that retrieves document chunks and generates grounded answers.",
+          "Built a FastAPI endpoint and published project code to GitHub."
+        ]
+      }
+    },
+    "assessment": {
+      "scores": {
+        "python": 1,
+        "ml_fundamentals": 1,
+        "project_evidence": 2,
+        "data_handling": 0,
+        "model_evaluation": 1,
+        "ml_libraries": 1,
+        "git_github": 1,
+        "practical_exposure": 0,
+        "bonus_exposure": 1
+      },
+      "total_score": 8,
+      "max_score": 22,
+      "technical_review_priority": "DEVELOPING_PROFILE",
+      "operational_status": "CONFIRM_LOCATION",
+      "operational_reason": "Candidate is outside Lahore but indicated onsite availability."
+    }
+  },
+  {
+    "candidate_id": "DEMO-009",
+    "name": "Fatima Shah",
+    "applied_role": "ML/AI",
+    "operational": {
+      "current_city": "Lahore",
+      "onsite_available": "Yes",
+      "shift_available": "Yes"
+    },
+    "resume": {
+      "filename": "demo_009_resume.pdf",
+      "parse_status": "success",
+      "pages": 1
+    },
+    "manual_review_required": false,
+    "evidence": {
+      "python": {
+        "mentioned": true,
+        "explicit_use": true,
+        "ecosystem_used": true
+      },
+      "machine_learning": {
+        "models_found": [
+          "logistic regression",
+          "random forest"
+        ],
+        "workflow": {
+          "model_training": true,
+          "train_test": true,
+          "model_comparison": true,
+          "feature_work": true,
+          "evaluation": true,
+          "evaluation_reasoning": true,
+          "interface_or_deployment": true
+        }
+      },
+      "data_handling": {
+        "cleaning_or_preprocessing": true,
+        "missing_values": true,
+        "categorical_encoding": true,
+        "feature_work": true,
+        "eda": false,
+        "class_imbalance": false
+      },
+      "evaluation": {
+        "metrics": [
+          "accuracy",
+          "f1-score",
+          "precision",
+          "recall",
+          "roc-auc"
+        ],
+        "confusion_matrix": false,
+        "classification_report": false,
+        "reasoning": true
+      },
+      "ml_libraries": {
+        "found": [
+          "scikit-learn"
+        ],
+        "used_in_body": false
+      },
+      "git_github": {
+        "mentioned": true,
+        "demonstrated": true
+      },
+      "practical_exposure": {
+        "strong": false,
+        "light": true
+      },
+      "bonus": {
+        "mentioned": [
+          "sql",
+          "streamlit"
+        ],
+        "demonstrated": [
+          "streamlit"
+        ]
+      },
+      "snippets": {
+        "python": [
+          "Using Python, Pandas and NumPy, cleaned and preprocessed customer data, handled missing values and categorical variables, and performed feature engineering."
+        ],
+        "ml_workflow": [
+          "Fatima Shah BS Student - Graduated Customer Churn Prediction.",
+          "Trained Logistic Regression and Random Forest models using a train-test split and compared their performance.",
+          "Built a Streamlit prediction interface and published the project to GitHub with documentation."
+        ],
+        "data_handling": [
+          "Using Python, Pandas and NumPy, cleaned and preprocessed customer data, handled missing values and categorical variables, and performed feature engineering.",
+          "Cleaned and preprocessed customer data, handled missing values and categorical variables, and performed feature engineering."
+        ],
+        "evaluation": [
+          "Evaluated models using accuracy, precision, recall, F1-score and ROC-AUC and selected the final model based on evaluation results."
+        ],
+        "git_github": [
+          "Built a Streamlit prediction interface and published the project to GitHub with documentation."
+        ],
+        "additional_technology": [
+          "Built a Streamlit prediction interface and published the project to GitHub with documentation."
+        ]
+      }
+    },
+    "assessment": {
+      "scores": {
+        "python": 3,
+        "ml_fundamentals": 3,
+        "project_evidence": 3,
+        "data_handling": 3,
+        "model_evaluation": 2,
+        "ml_libraries": 2,
+        "git_github": 2,
+        "practical_exposure": 1,
+        "bonus_exposure": 1
+      },
+      "total_score": 20,
+      "max_score": 22,
+      "technical_review_priority": "PRIORITY_REVIEW",
+      "operational_status": "READY",
+      "operational_reason": "Lahore-based and available for onsite work and the required shift."
+    }
+  },
+  {
+    "candidate_id": "DEMO-010",
+    "name": "Daniyal Khan",
+    "applied_role": "ML/AI",
+    "operational": {
+      "current_city": "Rawalpindi",
+      "onsite_available": "Yes",
+      "shift_available": "Yes"
+    },
+    "resume": {
+      "filename": "demo_010_resume.pdf",
+      "parse_status": "success",
+      "pages": 1
+    },
+    "manual_review_required": false,
+    "evidence": {
+      "python": {
+        "mentioned": true,
+        "explicit_use": true,
+        "ecosystem_used": true
+      },
+      "machine_learning": {
+        "models_found": [
+          "logistic regression",
+          "random forest"
+        ],
+        "workflow": {
+          "model_training": true,
+          "train_test": true,
+          "model_comparison": true,
+          "feature_work": true,
+          "evaluation": true,
+          "evaluation_reasoning": true,
+          "interface_or_deployment": true
+        }
+      },
+      "data_handling": {
+        "cleaning_or_preprocessing": true,
+        "missing_values": true,
+        "categorical_encoding": true,
+        "feature_work": true,
+        "eda": false,
+        "class_imbalance": false
+      },
+      "evaluation": {
+        "metrics": [
+          "accuracy",
+          "f1-score",
+          "precision",
+          "recall",
+          "roc-auc"
+        ],
+        "confusion_matrix": false,
+        "classification_report": false,
+        "reasoning": true
+      },
+      "ml_libraries": {
+        "found": [
+          "scikit-learn"
+        ],
+        "used_in_body": false
+      },
+      "git_github": {
+        "mentioned": true,
+        "demonstrated": true
+      },
+      "practical_exposure": {
+        "strong": false,
+        "light": true
+      },
+      "bonus": {
+        "mentioned": [
+          "sql",
+          "streamlit"
+        ],
+        "demonstrated": [
+          "streamlit"
+        ]
+      },
+      "snippets": {
+        "python": [
+          "Using Python, Pandas and NumPy, cleaned and preprocessed customer data, handled missing values and categorical variables, and performed feature engineering."
+        ],
+        "ml_workflow": [
+          "Daniyal Khan BS Student - 7th Semester Customer Churn Prediction.",
+          "Trained Logistic Regression and Random Forest models using a train-test split and compared their performance.",
+          "Built a Streamlit prediction interface and published the project to GitHub with documentation."
+        ],
+        "data_handling": [
+          "Using Python, Pandas and NumPy, cleaned and preprocessed customer data, handled missing values and categorical variables, and performed feature engineering.",
+          "Cleaned and preprocessed customer data, handled missing values and categorical variables, and performed feature engineering."
+        ],
+        "evaluation": [
+          "Evaluated models using accuracy, precision, recall, F1-score and ROC-AUC and selected the final model based on evaluation results."
+        ],
+        "git_github": [
+          "Built a Streamlit prediction interface and published the project to GitHub with documentation."
+        ],
+        "additional_technology": [
+          "Built a Streamlit prediction interface and published the project to GitHub with documentation."
+        ]
+      }
+    },
+    "assessment": {
+      "scores": {
+        "python": 3,
+        "ml_fundamentals": 3,
+        "project_evidence": 3,
+        "data_handling": 3,
+        "model_evaluation": 2,
+        "ml_libraries": 2,
+        "git_github": 2,
+        "practical_exposure": 1,
+        "bonus_exposure": 1
+      },
+      "total_score": 20,
+      "max_score": 22,
+      "technical_review_priority": "PRIORITY_REVIEW",
+      "operational_status": "CONFIRM_LOCATION",
+      "operational_reason": "Candidate is outside Lahore but indicated onsite availability."
+    }
+  },
+  {
+    "candidate_id": "DEMO-011",
+    "name": "Maham Tariq",
+    "applied_role": "ML/AI",
+    "operational": {
+      "current_city": "Lahore",
+      "onsite_available": "Yes",
+      "shift_available": "Yes"
+    },
+    "resume": {
+      "filename": "demo_011_resume.pdf",
+      "parse_status": "success",
+      "pages": 1
+    },
+    "manual_review_required": false,
+    "evidence": {
+      "python": {
+        "mentioned": true,
+        "explicit_use": true,
+        "ecosystem_used": true
+      },
+      "machine_learning": {
+        "models_found": [
+          "logistic regression",
+          "decision tree",
+          "random forest"
+        ],
+        "workflow": {
+          "model_training": true,
+          "train_test": true,
+          "model_comparison": true,
+          "feature_work": true,
+          "evaluation": true,
+          "evaluation_reasoning": true,
+          "interface_or_deployment": false
+        }
+      },
+      "data_handling": {
+        "cleaning_or_preprocessing": false,
+        "missing_values": true,
+        "categorical_encoding": true,
+        "feature_work": true,
+        "eda": false,
+        "class_imbalance": true
+      },
+      "evaluation": {
+        "metrics": [
+          "f1-score",
+          "precision",
+          "recall",
+          "roc-auc"
+        ],
+        "confusion_matrix": false,
+        "classification_report": false,
+        "reasoning": true
+      },
+      "ml_libraries": {
+        "found": [
+          "scikit-learn"
+        ],
+        "used_in_body": false
+      },
+      "git_github": {
+        "mentioned": true,
+        "demonstrated": true
+      },
+      "practical_exposure": {
+        "strong": false,
+        "light": false
+      },
+      "bonus": {
+        "mentioned": [
+          "sql"
+        ],
+        "demonstrated": []
+      },
+      "snippets": {
+        "python": [
+          "Using Python and Pandas, worked with approximately 8000 records, inspected missing values and class imbalance, encoded categorical variables and performed feature selection."
+        ],
+        "ml_workflow": [
+          "Maham Tariq BS Student - 8th Semester Loan Default Prediction System.",
+          "Compared Logistic Regression, Decision Tree and Random Forest using a train-test split."
+        ],
+        "data_handling": [
+          "Using Python and Pandas, worked with approximately 8000 records, inspected missing values and class imbalance, encoded categorical variables and performed feature selection.",
+          "Worked with approximately 8000 records, inspected missing values and class imbalance, encoded categorical variables and performed feature selection."
+        ],
+        "evaluation": [
+          "Evaluated models using precision, recall, F1-score and ROC-AUC.",
+          "Recall was prioritized because false negatives were more costly for the problem."
+        ],
+        "git_github": [
+          "Published the project to GitHub with a detailed README."
+        ],
+        "additional_technology": []
+      }
+    },
+    "assessment": {
+      "scores": {
+        "python": 3,
+        "ml_fundamentals": 3,
+        "project_evidence": 3,
+        "data_handling": 3,
+        "model_evaluation": 2,
+        "ml_libraries": 2,
+        "git_github": 2,
+        "practical_exposure": 0,
+        "bonus_exposure": 1
+      },
+      "total_score": 19,
+      "max_score": 22,
+      "technical_review_priority": "PRIORITY_REVIEW",
+      "operational_status": "READY",
+      "operational_reason": "Lahore-based and available for onsite work and the required shift."
+    }
+  },
+  {
+    "candidate_id": "DEMO-012",
+    "name": "Saad Ahmed",
+    "applied_role": "ML/AI",
+    "operational": {
+      "current_city": "Lahore",
+      "onsite_available": "No",
+      "shift_available": "Yes"
+    },
+    "resume": {
+      "filename": "demo_012_resume.pdf",
+      "parse_status": "success",
+      "pages": 1
+    },
+    "manual_review_required": false,
+    "evidence": {
+      "python": {
+        "mentioned": true,
+        "explicit_use": true,
+        "ecosystem_used": true
+      },
+      "machine_learning": {
+        "models_found": [
+          "logistic regression"
+        ],
+        "workflow": {
+          "model_training": false,
+          "train_test": true,
+          "model_comparison": false,
+          "feature_work": false,
+          "evaluation": true,
+          "evaluation_reasoning": false,
+          "interface_or_deployment": false
+        }
+      },
+      "data_handling": {
+        "cleaning_or_preprocessing": true,
+        "missing_values": false,
+        "categorical_encoding": false,
+        "feature_work": false,
+        "eda": false,
+        "class_imbalance": false
+      },
+      "evaluation": {
+        "metrics": [
+          "accuracy"
+        ],
+        "confusion_matrix": true,
+        "classification_report": false,
+        "reasoning": false
+      },
+      "ml_libraries": {
+        "found": [
+          "scikit-learn"
+        ],
+        "used_in_body": true
+      },
+      "git_github": {
+        "mentioned": true,
+        "demonstrated": false
+      },
+      "practical_exposure": {
+        "strong": false,
+        "light": true
+      },
+      "bonus": {
+        "mentioned": [
+          "sql"
+        ],
+        "demonstrated": []
+      },
+      "snippets": {
+        "python": [
+          "Using Python and Pandas, preprocessed student data and trained a Logistic Regression classification model using Scikit-learn.",
+          "Preprocessed student data and trained a Logistic Regression classification model using Scikit-learn."
+        ],
+        "ml_workflow": [
+          "Saad Ahmed BS Student - Graduated Student Performance Prediction.",
+          "Using Python and Pandas, preprocessed student data and trained a Logistic Regression classification model using Scikit-learn.",
+          "Preprocessed student data and trained a Logistic Regression classification model using Scikit-learn.",
+          "Used a train-test split and evaluated the model using accuracy and a confusion matrix."
+        ],
+        "data_handling": [
+          "Using Python and Pandas, preprocessed student data and trained a Logistic Regression classification model using Scikit-learn.",
+          "Preprocessed student data and trained a Logistic Regression classification model using Scikit-learn."
+        ],
+        "evaluation": [
+          "Used a train-test split and evaluated the model using accuracy and a confusion matrix."
+        ],
+        "git_github": [],
+        "additional_technology": []
+      }
+    },
+    "assessment": {
+      "scores": {
+        "python": 2,
+        "ml_fundamentals": 1,
+        "project_evidence": 2,
+        "data_handling": 1,
+        "model_evaluation": 2,
+        "ml_libraries": 1,
+        "git_github": 1,
+        "practical_exposure": 1,
+        "bonus_exposure": 1
+      },
+      "total_score": 12,
+      "max_score": 22,
+      "technical_review_priority": "GOOD_POTENTIAL",
+      "operational_status": "REQUIREMENT_MISMATCH",
+      "operational_reason": "Candidate is not available for onsite work."
+    }
+  },
+  {
+    "candidate_id": "DEMO-013",
+    "name": "Iqra Aslam",
+    "applied_role": "ML/AI",
+    "operational": {
+      "current_city": "Lahore",
+      "onsite_available": "Yes",
+      "shift_available": "Yes"
+    },
+    "resume": {
+      "filename": "demo_013_resume.pdf",
+      "parse_status": "success",
+      "pages": 1
+    },
+    "manual_review_required": false,
+    "evidence": {
+      "python": {
+        "mentioned": true,
+        "explicit_use": true,
+        "ecosystem_used": true
+      },
+      "machine_learning": {
+        "models_found": [
+          "logistic regression"
+        ],
+        "workflow": {
+          "model_training": false,
+          "train_test": true,
+          "model_comparison": false,
+          "feature_work": false,
+          "evaluation": true,
+          "evaluation_reasoning": false,
+          "interface_or_deployment": false
+        }
+      },
+      "data_handling": {
+        "cleaning_or_preprocessing": true,
+        "missing_values": false,
+        "categorical_encoding": false,
+        "feature_work": false,
+        "eda": false,
+        "class_imbalance": false
+      },
+      "evaluation": {
+        "metrics": [
+          "accuracy"
+        ],
+        "confusion_matrix": true,
+        "classification_report": false,
+        "reasoning": false
+      },
+      "ml_libraries": {
+        "found": [
+          "scikit-learn"
+        ],
+        "used_in_body": true
+      },
+      "git_github": {
+        "mentioned": true,
+        "demonstrated": false
+      },
+      "practical_exposure": {
+        "strong": false,
+        "light": true
+      },
+      "bonus": {
+        "mentioned": [
+          "sql"
+        ],
+        "demonstrated": []
+      },
+      "snippets": {
+        "python": [
+          "Using Python and Pandas, preprocessed student data and trained a Logistic Regression classification model using Scikit-learn.",
+          "Preprocessed student data and trained a Logistic Regression classification model using Scikit-learn."
+        ],
+        "ml_workflow": [
+          "Iqra Aslam BS Student - 7th Semester Student Performance Prediction.",
+          "Using Python and Pandas, preprocessed student data and trained a Logistic Regression classification model using Scikit-learn.",
+          "Preprocessed student data and trained a Logistic Regression classification model using Scikit-learn.",
+          "Used a train-test split and evaluated the model using accuracy and a confusion matrix."
+        ],
+        "data_handling": [
+          "Using Python and Pandas, preprocessed student data and trained a Logistic Regression classification model using Scikit-learn.",
+          "Preprocessed student data and trained a Logistic Regression classification model using Scikit-learn."
+        ],
+        "evaluation": [
+          "Used a train-test split and evaluated the model using accuracy and a confusion matrix."
+        ],
+        "git_github": [],
+        "additional_technology": []
+      }
+    },
+    "assessment": {
+      "scores": {
+        "python": 2,
+        "ml_fundamentals": 1,
+        "project_evidence": 2,
+        "data_handling": 1,
+        "model_evaluation": 2,
+        "ml_libraries": 1,
+        "git_github": 1,
+        "practical_exposure": 1,
+        "bonus_exposure": 1
+      },
+      "total_score": 12,
+      "max_score": 22,
+      "technical_review_priority": "GOOD_POTENTIAL",
+      "operational_status": "READY",
+      "operational_reason": "Lahore-based and available for onsite work and the required shift."
+    }
+  },
+  {
+    "candidate_id": "DEMO-014",
+    "name": "Ahmed Raza",
+    "applied_role": "ML/AI",
+    "operational": {
+      "current_city": "Lahore",
+      "onsite_available": "Yes",
+      "shift_available": "Yes"
+    },
+    "resume": {
+      "filename": "demo_014_resume.pdf",
+      "parse_status": "success",
+      "pages": 1
+    },
+    "manual_review_required": false,
+    "evidence": {
+      "python": {
+        "mentioned": true,
+        "explicit_use": true,
+        "ecosystem_used": false
+      },
+      "machine_learning": {
+        "models_found": [],
+        "workflow": {
+          "model_training": true,
+          "train_test": false,
+          "model_comparison": false,
+          "feature_work": false,
+          "evaluation": false,
+          "evaluation_reasoning": false,
+          "interface_or_deployment": false
+        }
+      },
+      "data_handling": {
+        "cleaning_or_preprocessing": false,
+        "missing_values": false,
+        "categorical_encoding": false,
+        "feature_work": false,
+        "eda": false,
+        "class_imbalance": false
+      },
+      "evaluation": {
+        "metrics": [],
+        "confusion_matrix": false,
+        "classification_report": false,
+        "reasoning": false
+      },
+      "ml_libraries": {
+        "found": [
+          "pytorch",
+          "tensorflow"
+        ],
+        "used_in_body": false
+      },
+      "git_github": {
+        "mentioned": true,
+        "demonstrated": false
+      },
+      "practical_exposure": {
+        "strong": false,
+        "light": false
+      },
+      "bonus": {
+        "mentioned": [
+          "aws",
+          "docker",
+          "generative ai",
+          "langchain",
+          "rag",
+          "sql"
+        ],
+        "demonstrated": [
+          "docker",
+          "sql"
+        ]
+      },
+      "snippets": {
+        "python": [
+          "Developed an AI chatbot using Python and AI technologies."
+        ],
+        "ml_workflow": [
+          "Machine Learning Prediction System.",
+          "Built a machine learning model for prediction."
+        ],
+        "data_handling": [],
+        "evaluation": [],
+        "git_github": [
+          "Ahmed Raza BS Student - 8th Semester Docker, SQL, Git, GitHub Fundamentals AI Chatbot."
+        ],
+        "additional_technology": [
+          "Ahmed Raza BS Student - 8th Semester Docker, SQL, Git, GitHub Fundamentals AI Chatbot."
+        ]
+      }
+    },
+    "assessment": {
+      "scores": {
+        "python": 1,
+        "ml_fundamentals": 1,
+        "project_evidence": 1,
+        "data_handling": 0,
+        "model_evaluation": 0,
+        "ml_libraries": 1,
+        "git_github": 1,
+        "practical_exposure": 0,
+        "bonus_exposure": 1
+      },
+      "total_score": 6,
+      "max_score": 22,
+      "technical_review_priority": "DEVELOPING_PROFILE",
+      "operational_status": "READY",
+      "operational_reason": "Lahore-based and available for onsite work and the required shift."
+    }
+  },
+  {
+    "candidate_id": "DEMO-015",
+    "name": "Maryam Noor",
+    "applied_role": "ML/AI",
+    "operational": {
+      "current_city": "Lahore",
+      "onsite_available": "Yes",
+      "shift_available": "Yes"
+    },
+    "resume": {
+      "filename": "demo_015_resume.pdf",
+      "parse_status": "success",
+      "pages": 1
+    },
+    "manual_review_required": false,
+    "evidence": {
+      "python": {
+        "mentioned": true,
+        "explicit_use": false,
+        "ecosystem_used": true
+      },
+      "machine_learning": {
+        "models_found": [],
+        "workflow": {
+          "model_training": false,
+          "train_test": false,
+          "model_comparison": false,
+          "feature_work": false,
+          "evaluation": false,
+          "evaluation_reasoning": false,
+          "interface_or_deployment": false
+        }
+      },
+      "data_handling": {
+        "cleaning_or_preprocessing": false,
+        "missing_values": false,
+        "categorical_encoding": false,
+        "feature_work": false,
+        "eda": false,
+        "class_imbalance": false
+      },
+      "evaluation": {
+        "metrics": [],
+        "confusion_matrix": false,
+        "classification_report": false,
+        "reasoning": false
+      },
+      "ml_libraries": {
+        "found": [],
+        "used_in_body": false
+      },
+      "git_github": {
+        "mentioned": false,
+        "demonstrated": false
+      },
+      "practical_exposure": {
+        "strong": false,
+        "light": false
+      },
+      "bonus": {
+        "mentioned": [],
+        "demonstrated": []
+      },
+      "snippets": {
+        "python": [
+          "Maryam Noor BS Student - Graduated Python Practice Projects.",
+          "Completed beginner Python exercises and learned basic data analysis using Pandas."
+        ],
+        "ml_workflow": [
+          "Currently learning machine learning classification concepts."
+        ],
+        "data_handling": [],
+        "evaluation": [],
+        "git_github": [],
+        "additional_technology": []
+      }
+    },
+    "assessment": {
+      "scores": {
+        "python": 1,
+        "ml_fundamentals": 0,
+        "project_evidence": 0,
+        "data_handling": 0,
+        "model_evaluation": 0,
+        "ml_libraries": 0,
+        "git_github": 0,
+        "practical_exposure": 0,
+        "bonus_exposure": 0
+      },
+      "total_score": 1,
+      "max_score": 22,
+      "technical_review_priority": "INSUFFICIENT_EVIDENCE",
+      "operational_status": "READY",
+      "operational_reason": "Lahore-based and available for onsite work and the required shift."
+    }
+  },
+  {
+    "candidate_id": "DEMO-016",
+    "name": "Talha Khan",
+    "applied_role": "ML/AI",
+    "operational": {
+      "current_city": "Islamabad",
+      "onsite_available": "Yes",
+      "shift_available": "Yes"
+    },
+    "resume": {
+      "filename": "demo_016_resume.pdf",
+      "parse_status": "success",
+      "pages": 1
+    },
+    "manual_review_required": false,
+    "evidence": {
+      "python": {
+        "mentioned": true,
+        "explicit_use": false,
+        "ecosystem_used": false
+      },
+      "machine_learning": {
+        "models_found": [
+          "logistic regression"
+        ],
+        "workflow": {
+          "model_training": false,
+          "train_test": false,
+          "model_comparison": false,
+          "feature_work": false,
+          "evaluation": true,
+          "evaluation_reasoning": false,
+          "interface_or_deployment": true
+        }
+      },
+      "data_handling": {
+        "cleaning_or_preprocessing": false,
+        "missing_values": false,
+        "categorical_encoding": false,
+        "feature_work": false,
+        "eda": false,
+        "class_imbalance": false
+      },
+      "evaluation": {
+        "metrics": [
+          "accuracy",
+          "f1-score"
+        ],
+        "confusion_matrix": false,
+        "classification_report": false,
+        "reasoning": false
+      },
+      "ml_libraries": {
+        "found": [
+          "scikit-learn"
+        ],
+        "used_in_body": false
+      },
+      "git_github": {
+        "mentioned": true,
+        "demonstrated": false
+      },
+      "practical_exposure": {
+        "strong": false,
+        "light": false
+      },
+      "bonus": {
+        "mentioned": [
+          "fastapi",
+          "langchain",
+          "rag"
+        ],
+        "demonstrated": [
+          "fastapi",
+          "rag"
+        ]
+      },
+      "snippets": {
+        "python": [
+          "Built a Python RAG application that retrieves document chunks and generates grounded answers."
+        ],
+        "ml_workflow": [
+          "Also trained a Logistic Regression classifier and evaluated it using accuracy and F1-score."
+        ],
+        "data_handling": [],
+        "evaluation": [
+          "Also trained a Logistic Regression classifier and evaluated it using accuracy and F1-score."
+        ],
+        "git_github": [
+          "Built a FastAPI endpoint and published project code to GitHub."
+        ],
+        "additional_technology": [
+          "Built a Python RAG application that retrieves document chunks and generates grounded answers.",
+          "Built a FastAPI endpoint and published project code to GitHub."
+        ]
+      }
+    },
+    "assessment": {
+      "scores": {
+        "python": 1,
+        "ml_fundamentals": 1,
+        "project_evidence": 2,
+        "data_handling": 0,
+        "model_evaluation": 1,
+        "ml_libraries": 1,
+        "git_github": 1,
+        "practical_exposure": 0,
+        "bonus_exposure": 1
+      },
+      "total_score": 8,
+      "max_score": 22,
+      "technical_review_priority": "DEVELOPING_PROFILE",
+      "operational_status": "CONFIRM_LOCATION",
+      "operational_reason": "Candidate is outside Lahore but indicated onsite availability."
+    }
+  },
+  {
+    "candidate_id": "DEMO-017",
+    "name": "Anam Fatima",
+    "applied_role": "ML/AI",
+    "operational": {
+      "current_city": "Lahore",
+      "onsite_available": "Yes",
+      "shift_available": "Yes"
+    },
+    "resume": {
+      "filename": "demo_017_resume.pdf",
+      "parse_status": "success",
+      "pages": 1
+    },
+    "manual_review_required": false,
+    "evidence": {
+      "python": {
+        "mentioned": true,
+        "explicit_use": true,
+        "ecosystem_used": true
+      },
+      "machine_learning": {
+        "models_found": [
+          "logistic regression",
+          "random forest"
+        ],
+        "workflow": {
+          "model_training": true,
+          "train_test": true,
+          "model_comparison": true,
+          "feature_work": true,
+          "evaluation": true,
+          "evaluation_reasoning": true,
+          "interface_or_deployment": true
+        }
+      },
+      "data_handling": {
+        "cleaning_or_preprocessing": true,
+        "missing_values": true,
+        "categorical_encoding": true,
+        "feature_work": true,
+        "eda": false,
+        "class_imbalance": false
+      },
+      "evaluation": {
+        "metrics": [
+          "accuracy",
+          "f1-score",
+          "precision",
+          "recall",
+          "roc-auc"
+        ],
+        "confusion_matrix": false,
+        "classification_report": false,
+        "reasoning": true
+      },
+      "ml_libraries": {
+        "found": [
+          "scikit-learn"
+        ],
+        "used_in_body": false
+      },
+      "git_github": {
+        "mentioned": true,
+        "demonstrated": true
+      },
+      "practical_exposure": {
+        "strong": false,
+        "light": true
+      },
+      "bonus": {
+        "mentioned": [
+          "sql",
+          "streamlit"
+        ],
+        "demonstrated": [
+          "streamlit"
+        ]
+      },
+      "snippets": {
+        "python": [
+          "Using Python, Pandas and NumPy, cleaned and preprocessed customer data, handled missing values and categorical variables, and performed feature engineering."
+        ],
+        "ml_workflow": [
+          "Anam Fatima BS Student - 8th Semester Customer Churn Prediction.",
+          "Trained Logistic Regression and Random Forest models using a train-test split and compared their performance.",
+          "Built a Streamlit prediction interface and published the project to GitHub with documentation."
+        ],
+        "data_handling": [
+          "Using Python, Pandas and NumPy, cleaned and preprocessed customer data, handled missing values and categorical variables, and performed feature engineering.",
+          "Cleaned and preprocessed customer data, handled missing values and categorical variables, and performed feature engineering."
+        ],
+        "evaluation": [
+          "Evaluated models using accuracy, precision, recall, F1-score and ROC-AUC and selected the final model based on evaluation results."
+        ],
+        "git_github": [
+          "Built a Streamlit prediction interface and published the project to GitHub with documentation."
+        ],
+        "additional_technology": [
+          "Built a Streamlit prediction interface and published the project to GitHub with documentation."
+        ]
+      }
+    },
+    "assessment": {
+      "scores": {
+        "python": 3,
+        "ml_fundamentals": 3,
+        "project_evidence": 3,
+        "data_handling": 3,
+        "model_evaluation": 2,
+        "ml_libraries": 2,
+        "git_github": 2,
+        "practical_exposure": 1,
+        "bonus_exposure": 1
+      },
+      "total_score": 20,
+      "max_score": 22,
+      "technical_review_priority": "PRIORITY_REVIEW",
+      "operational_status": "READY",
+      "operational_reason": "Lahore-based and available for onsite work and the required shift."
+    }
+  },
+  {
+    "candidate_id": "DEMO-018",
+    "name": "Hassan Ali",
+    "applied_role": "ML/AI",
+    "operational": {
+      "current_city": "Lahore",
+      "onsite_available": "Yes",
+      "shift_available": "No"
+    },
+    "resume": {
+      "filename": "demo_018_resume.pdf",
+      "parse_status": "success",
+      "pages": 1
+    },
+    "manual_review_required": false,
+    "evidence": {
+      "python": {
+        "mentioned": true,
+        "explicit_use": true,
+        "ecosystem_used": true
+      },
+      "machine_learning": {
+        "models_found": [
+          "logistic regression",
+          "random forest"
+        ],
+        "workflow": {
+          "model_training": true,
+          "train_test": true,
+          "model_comparison": true,
+          "feature_work": true,
+          "evaluation": true,
+          "evaluation_reasoning": true,
+          "interface_or_deployment": true
+        }
+      },
+      "data_handling": {
+        "cleaning_or_preprocessing": true,
+        "missing_values": true,
+        "categorical_encoding": true,
+        "feature_work": true,
+        "eda": false,
+        "class_imbalance": false
+      },
+      "evaluation": {
+        "metrics": [
+          "accuracy",
+          "f1-score",
+          "precision",
+          "recall",
+          "roc-auc"
+        ],
+        "confusion_matrix": false,
+        "classification_report": false,
+        "reasoning": true
+      },
+      "ml_libraries": {
+        "found": [
+          "scikit-learn"
+        ],
+        "used_in_body": false
+      },
+      "git_github": {
+        "mentioned": true,
+        "demonstrated": true
+      },
+      "practical_exposure": {
+        "strong": false,
+        "light": true
+      },
+      "bonus": {
+        "mentioned": [
+          "sql",
+          "streamlit"
+        ],
+        "demonstrated": [
+          "streamlit"
+        ]
+      },
+      "snippets": {
+        "python": [
+          "Using Python, Pandas and NumPy, cleaned and preprocessed customer data, handled missing values and categorical variables, and performed feature engineering."
+        ],
+        "ml_workflow": [
+          "Hassan Ali BS Student - Graduated Customer Churn Prediction.",
+          "Trained Logistic Regression and Random Forest models using a train-test split and compared their performance.",
+          "Built a Streamlit prediction interface and published the project to GitHub with documentation."
+        ],
+        "data_handling": [
+          "Using Python, Pandas and NumPy, cleaned and preprocessed customer data, handled missing values and categorical variables, and performed feature engineering.",
+          "Cleaned and preprocessed customer data, handled missing values and categorical variables, and performed feature engineering."
+        ],
+        "evaluation": [
+          "Evaluated models using accuracy, precision, recall, F1-score and ROC-AUC and selected the final model based on evaluation results."
+        ],
+        "git_github": [
+          "Built a Streamlit prediction interface and published the project to GitHub with documentation."
+        ],
+        "additional_technology": [
+          "Built a Streamlit prediction interface and published the project to GitHub with documentation."
+        ]
+      }
+    },
+    "assessment": {
+      "scores": {
+        "python": 3,
+        "ml_fundamentals": 3,
+        "project_evidence": 3,
+        "data_handling": 3,
+        "model_evaluation": 2,
+        "ml_libraries": 2,
+        "git_github": 2,
+        "practical_exposure": 1,
+        "bonus_exposure": 1
+      },
+      "total_score": 20,
+      "max_score": 22,
+      "technical_review_priority": "PRIORITY_REVIEW",
+      "operational_status": "REQUIREMENT_MISMATCH",
+      "operational_reason": "Candidate is not available for the required shift."
+    }
+  },
+  {
+    "candidate_id": "DEMO-019",
+    "name": "Mehwish Tariq",
+    "applied_role": "ML/AI",
+    "operational": {
+      "current_city": "Lahore",
+      "onsite_available": "Yes",
+      "shift_available": "Yes"
+    },
+    "resume": {
+      "filename": "demo_019_resume.pdf",
+      "parse_status": "success",
+      "pages": 1
+    },
+    "manual_review_required": false,
+    "evidence": {
+      "python": {
+        "mentioned": true,
+        "explicit_use": true,
+        "ecosystem_used": true
+      },
+      "machine_learning": {
+        "models_found": [
+          "logistic regression",
+          "decision tree",
+          "random forest"
+        ],
+        "workflow": {
+          "model_training": true,
+          "train_test": true,
+          "model_comparison": true,
+          "feature_work": true,
+          "evaluation": true,
+          "evaluation_reasoning": true,
+          "interface_or_deployment": false
+        }
+      },
+      "data_handling": {
+        "cleaning_or_preprocessing": false,
+        "missing_values": true,
+        "categorical_encoding": true,
+        "feature_work": true,
+        "eda": false,
+        "class_imbalance": true
+      },
+      "evaluation": {
+        "metrics": [
+          "f1-score",
+          "precision",
+          "recall",
+          "roc-auc"
+        ],
+        "confusion_matrix": false,
+        "classification_report": false,
+        "reasoning": true
+      },
+      "ml_libraries": {
+        "found": [
+          "scikit-learn"
+        ],
+        "used_in_body": false
+      },
+      "git_github": {
+        "mentioned": true,
+        "demonstrated": true
+      },
+      "practical_exposure": {
+        "strong": false,
+        "light": false
+      },
+      "bonus": {
+        "mentioned": [
+          "sql"
+        ],
+        "demonstrated": []
+      },
+      "snippets": {
+        "python": [
+          "Using Python and Pandas, worked with approximately 8000 records, inspected missing values and class imbalance, encoded categorical variables and performed feature selection."
+        ],
+        "ml_workflow": [
+          "Mehwish Tariq BS Student - 7th Semester Loan Default Prediction System.",
+          "Compared Logistic Regression, Decision Tree and Random Forest using a train-test split."
+        ],
+        "data_handling": [
+          "Using Python and Pandas, worked with approximately 8000 records, inspected missing values and class imbalance, encoded categorical variables and performed feature selection.",
+          "Worked with approximately 8000 records, inspected missing values and class imbalance, encoded categorical variables and performed feature selection."
+        ],
+        "evaluation": [
+          "Evaluated models using precision, recall, F1-score and ROC-AUC.",
+          "Recall was prioritized because false negatives were more costly for the problem."
+        ],
+        "git_github": [
+          "Published the project to GitHub with a detailed README."
+        ],
+        "additional_technology": []
+      }
+    },
+    "assessment": {
+      "scores": {
+        "python": 3,
+        "ml_fundamentals": 3,
+        "project_evidence": 3,
+        "data_handling": 3,
+        "model_evaluation": 2,
+        "ml_libraries": 2,
+        "git_github": 2,
+        "practical_exposure": 0,
+        "bonus_exposure": 1
+      },
+      "total_score": 19,
+      "max_score": 22,
+      "technical_review_priority": "PRIORITY_REVIEW",
+      "operational_status": "READY",
+      "operational_reason": "Lahore-based and available for onsite work and the required shift."
+    }
+  },
+  {
+    "candidate_id": "DEMO-020",
+    "name": "Umer Farooq",
+    "applied_role": "ML/AI",
+    "operational": {
+      "current_city": "Rawalpindi",
+      "onsite_available": "Yes",
+      "shift_available": "Yes"
+    },
+    "resume": {
+      "filename": "demo_020_resume.pdf",
+      "parse_status": "success",
+      "pages": 1
+    },
+    "manual_review_required": false,
+    "evidence": {
+      "python": {
+        "mentioned": true,
+        "explicit_use": true,
+        "ecosystem_used": true
+      },
+      "machine_learning": {
+        "models_found": [
+          "logistic regression"
+        ],
+        "workflow": {
+          "model_training": false,
+          "train_test": true,
+          "model_comparison": false,
+          "feature_work": false,
+          "evaluation": true,
+          "evaluation_reasoning": false,
+          "interface_or_deployment": false
+        }
+      },
+      "data_handling": {
+        "cleaning_or_preprocessing": true,
+        "missing_values": false,
+        "categorical_encoding": false,
+        "feature_work": false,
+        "eda": false,
+        "class_imbalance": false
+      },
+      "evaluation": {
+        "metrics": [
+          "accuracy"
+        ],
+        "confusion_matrix": true,
+        "classification_report": false,
+        "reasoning": false
+      },
+      "ml_libraries": {
+        "found": [
+          "scikit-learn"
+        ],
+        "used_in_body": true
+      },
+      "git_github": {
+        "mentioned": true,
+        "demonstrated": false
+      },
+      "practical_exposure": {
+        "strong": false,
+        "light": true
+      },
+      "bonus": {
+        "mentioned": [
+          "sql"
+        ],
+        "demonstrated": []
+      },
+      "snippets": {
+        "python": [
+          "Using Python and Pandas, preprocessed student data and trained a Logistic Regression classification model using Scikit-learn.",
+          "Preprocessed student data and trained a Logistic Regression classification model using Scikit-learn."
+        ],
+        "ml_workflow": [
+          "Umer Farooq BS Student - 8th Semester Student Performance Prediction.",
+          "Using Python and Pandas, preprocessed student data and trained a Logistic Regression classification model using Scikit-learn.",
+          "Preprocessed student data and trained a Logistic Regression classification model using Scikit-learn.",
+          "Used a train-test split and evaluated the model using accuracy and a confusion matrix."
+        ],
+        "data_handling": [
+          "Using Python and Pandas, preprocessed student data and trained a Logistic Regression classification model using Scikit-learn.",
+          "Preprocessed student data and trained a Logistic Regression classification model using Scikit-learn."
+        ],
+        "evaluation": [
+          "Used a train-test split and evaluated the model using accuracy and a confusion matrix."
+        ],
+        "git_github": [],
+        "additional_technology": []
+      }
+    },
+    "assessment": {
+      "scores": {
+        "python": 2,
+        "ml_fundamentals": 1,
+        "project_evidence": 2,
+        "data_handling": 1,
+        "model_evaluation": 2,
+        "ml_libraries": 1,
+        "git_github": 1,
+        "practical_exposure": 1,
+        "bonus_exposure": 1
+      },
+      "total_score": 12,
+      "max_score": 22,
+      "technical_review_priority": "GOOD_POTENTIAL",
+      "operational_status": "CONFIRM_LOCATION",
+      "operational_reason": "Candidate is outside Lahore but indicated onsite availability."
+    }
+  },
+  {
+    "candidate_id": "DEMO-021",
+    "name": "Sana Khalid",
+    "applied_role": "ML/AI",
+    "operational": {
+      "current_city": "Lahore",
+      "onsite_available": "Yes",
+      "shift_available": "Yes"
+    },
+    "resume": {
+      "filename": "demo_021_resume.pdf",
+      "parse_status": "success",
+      "pages": 1
+    },
+    "manual_review_required": false,
+    "evidence": {
+      "python": {
+        "mentioned": true,
+        "explicit_use": true,
+        "ecosystem_used": true
+      },
+      "machine_learning": {
+        "models_found": [
+          "logistic regression"
+        ],
+        "workflow": {
+          "model_training": false,
+          "train_test": true,
+          "model_comparison": false,
+          "feature_work": false,
+          "evaluation": true,
+          "evaluation_reasoning": false,
+          "interface_or_deployment": false
+        }
+      },
+      "data_handling": {
+        "cleaning_or_preprocessing": true,
+        "missing_values": false,
+        "categorical_encoding": false,
+        "feature_work": false,
+        "eda": false,
+        "class_imbalance": false
+      },
+      "evaluation": {
+        "metrics": [
+          "accuracy"
+        ],
+        "confusion_matrix": true,
+        "classification_report": false,
+        "reasoning": false
+      },
+      "ml_libraries": {
+        "found": [
+          "scikit-learn"
+        ],
+        "used_in_body": true
+      },
+      "git_github": {
+        "mentioned": true,
+        "demonstrated": false
+      },
+      "practical_exposure": {
+        "strong": false,
+        "light": true
+      },
+      "bonus": {
+        "mentioned": [
+          "sql"
+        ],
+        "demonstrated": []
+      },
+      "snippets": {
+        "python": [
+          "Using Python and Pandas, preprocessed student data and trained a Logistic Regression classification model using Scikit-learn.",
+          "Preprocessed student data and trained a Logistic Regression classification model using Scikit-learn."
+        ],
+        "ml_workflow": [
+          "Sana Khalid BS Student - Graduated Student Performance Prediction.",
+          "Using Python and Pandas, preprocessed student data and trained a Logistic Regression classification model using Scikit-learn.",
+          "Preprocessed student data and trained a Logistic Regression classification model using Scikit-learn.",
+          "Used a train-test split and evaluated the model using accuracy and a confusion matrix."
+        ],
+        "data_handling": [
+          "Using Python and Pandas, preprocessed student data and trained a Logistic Regression classification model using Scikit-learn.",
+          "Preprocessed student data and trained a Logistic Regression classification model using Scikit-learn."
+        ],
+        "evaluation": [
+          "Used a train-test split and evaluated the model using accuracy and a confusion matrix."
+        ],
+        "git_github": [],
+        "additional_technology": []
+      }
+    },
+    "assessment": {
+      "scores": {
+        "python": 2,
+        "ml_fundamentals": 1,
+        "project_evidence": 2,
+        "data_handling": 1,
+        "model_evaluation": 2,
+        "ml_libraries": 1,
+        "git_github": 1,
+        "practical_exposure": 1,
+        "bonus_exposure": 1
+      },
+      "total_score": 12,
+      "max_score": 22,
+      "technical_review_priority": "GOOD_POTENTIAL",
+      "operational_status": "READY",
+      "operational_reason": "Lahore-based and available for onsite work and the required shift."
+    }
+  },
+  {
+    "candidate_id": "DEMO-022",
+    "name": "Abbas Raza",
+    "applied_role": "ML/AI",
+    "operational": {
+      "current_city": "Lahore",
+      "onsite_available": "Yes",
+      "shift_available": "Yes"
+    },
+    "resume": {
+      "filename": "demo_022_resume.pdf",
+      "parse_status": "success",
+      "pages": 1
+    },
+    "manual_review_required": false,
+    "evidence": {
+      "python": {
+        "mentioned": true,
+        "explicit_use": true,
+        "ecosystem_used": false
+      },
+      "machine_learning": {
+        "models_found": [],
+        "workflow": {
+          "model_training": true,
+          "train_test": false,
+          "model_comparison": false,
+          "feature_work": false,
+          "evaluation": false,
+          "evaluation_reasoning": false,
+          "interface_or_deployment": false
+        }
+      },
+      "data_handling": {
+        "cleaning_or_preprocessing": false,
+        "missing_values": false,
+        "categorical_encoding": false,
+        "feature_work": false,
+        "eda": false,
+        "class_imbalance": false
+      },
+      "evaluation": {
+        "metrics": [],
+        "confusion_matrix": false,
+        "classification_report": false,
+        "reasoning": false
+      },
+      "ml_libraries": {
+        "found": [
+          "pytorch",
+          "tensorflow"
+        ],
+        "used_in_body": false
+      },
+      "git_github": {
+        "mentioned": true,
+        "demonstrated": false
+      },
+      "practical_exposure": {
+        "strong": false,
+        "light": false
+      },
+      "bonus": {
+        "mentioned": [
+          "aws",
+          "docker",
+          "generative ai",
+          "langchain",
+          "rag",
+          "sql"
+        ],
+        "demonstrated": [
+          "docker",
+          "sql"
+        ]
+      },
+      "snippets": {
+        "python": [
+          "Developed an AI chatbot using Python and AI technologies."
+        ],
+        "ml_workflow": [
+          "Machine Learning Prediction System.",
+          "Built a machine learning model for prediction."
+        ],
+        "data_handling": [],
+        "evaluation": [],
+        "git_github": [
+          "Abbas Raza BS Student - 7th Semester Docker, SQL, Git, GitHub Fundamentals AI Chatbot."
+        ],
+        "additional_technology": [
+          "Abbas Raza BS Student - 7th Semester Docker, SQL, Git, GitHub Fundamentals AI Chatbot."
+        ]
+      }
+    },
+    "assessment": {
+      "scores": {
+        "python": 1,
+        "ml_fundamentals": 1,
+        "project_evidence": 1,
+        "data_handling": 0,
+        "model_evaluation": 0,
+        "ml_libraries": 1,
+        "git_github": 1,
+        "practical_exposure": 0,
+        "bonus_exposure": 1
+      },
+      "total_score": 6,
+      "max_score": 22,
+      "technical_review_priority": "DEVELOPING_PROFILE",
+      "operational_status": "READY",
+      "operational_reason": "Lahore-based and available for onsite work and the required shift."
+    }
+  },
+  {
+    "candidate_id": "DEMO-023",
+    "name": "Areeba Khan",
+    "applied_role": "ML/AI",
+    "operational": {
+      "current_city": "Lahore",
+      "onsite_available": "Yes",
+      "shift_available": "Yes"
+    },
+    "resume": {
+      "filename": "demo_023_resume.pdf",
+      "parse_status": "success",
+      "pages": 1
+    },
+    "manual_review_required": false,
+    "evidence": {
+      "python": {
+        "mentioned": true,
+        "explicit_use": false,
+        "ecosystem_used": true
+      },
+      "machine_learning": {
+        "models_found": [],
+        "workflow": {
+          "model_training": false,
+          "train_test": false,
+          "model_comparison": false,
+          "feature_work": false,
+          "evaluation": false,
+          "evaluation_reasoning": false,
+          "interface_or_deployment": false
+        }
+      },
+      "data_handling": {
+        "cleaning_or_preprocessing": false,
+        "missing_values": false,
+        "categorical_encoding": false,
+        "feature_work": false,
+        "eda": false,
+        "class_imbalance": false
+      },
+      "evaluation": {
+        "metrics": [],
+        "confusion_matrix": false,
+        "classification_report": false,
+        "reasoning": false
+      },
+      "ml_libraries": {
+        "found": [],
+        "used_in_body": false
+      },
+      "git_github": {
+        "mentioned": false,
+        "demonstrated": false
+      },
+      "practical_exposure": {
+        "strong": false,
+        "light": false
+      },
+      "bonus": {
+        "mentioned": [],
+        "demonstrated": []
+      },
+      "snippets": {
+        "python": [
+          "Areeba Khan BS Student - 8th Semester Python Practice Projects.",
+          "Completed beginner Python exercises and learned basic data analysis using Pandas."
+        ],
+        "ml_workflow": [
+          "Currently learning machine learning classification concepts."
+        ],
+        "data_handling": [],
+        "evaluation": [],
+        "git_github": [],
+        "additional_technology": []
+      }
+    },
+    "assessment": {
+      "scores": {
+        "python": 1,
+        "ml_fundamentals": 0,
+        "project_evidence": 0,
+        "data_handling": 0,
+        "model_evaluation": 0,
+        "ml_libraries": 0,
+        "git_github": 0,
+        "practical_exposure": 0,
+        "bonus_exposure": 0
+      },
+      "total_score": 1,
+      "max_score": 22,
+      "technical_review_priority": "INSUFFICIENT_EVIDENCE",
+      "operational_status": "READY",
+      "operational_reason": "Lahore-based and available for onsite work and the required shift."
+    }
+  },
+  {
+    "candidate_id": "DEMO-024",
+    "name": "Huzaifa Ali",
+    "applied_role": "ML/AI",
+    "operational": {
+      "current_city": "Islamabad",
+      "onsite_available": "Yes",
+      "shift_available": "Yes"
+    },
+    "resume": {
+      "filename": "demo_024_resume.pdf",
+      "parse_status": "success",
+      "pages": 1
+    },
+    "manual_review_required": false,
+    "evidence": {
+      "python": {
+        "mentioned": true,
+        "explicit_use": false,
+        "ecosystem_used": false
+      },
+      "machine_learning": {
+        "models_found": [
+          "logistic regression"
+        ],
+        "workflow": {
+          "model_training": false,
+          "train_test": false,
+          "model_comparison": false,
+          "feature_work": false,
+          "evaluation": true,
+          "evaluation_reasoning": false,
+          "interface_or_deployment": true
+        }
+      },
+      "data_handling": {
+        "cleaning_or_preprocessing": false,
+        "missing_values": false,
+        "categorical_encoding": false,
+        "feature_work": false,
+        "eda": false,
+        "class_imbalance": false
+      },
+      "evaluation": {
+        "metrics": [
+          "accuracy",
+          "f1-score"
+        ],
+        "confusion_matrix": false,
+        "classification_report": false,
+        "reasoning": false
+      },
+      "ml_libraries": {
+        "found": [
+          "scikit-learn"
+        ],
+        "used_in_body": false
+      },
+      "git_github": {
+        "mentioned": true,
+        "demonstrated": false
+      },
+      "practical_exposure": {
+        "strong": false,
+        "light": false
+      },
+      "bonus": {
+        "mentioned": [
+          "fastapi",
+          "langchain",
+          "rag"
+        ],
+        "demonstrated": [
+          "fastapi",
+          "rag"
+        ]
+      },
+      "snippets": {
+        "python": [
+          "Built a Python RAG application that retrieves document chunks and generates grounded answers."
+        ],
+        "ml_workflow": [
+          "Also trained a Logistic Regression classifier and evaluated it using accuracy and F1-score."
+        ],
+        "data_handling": [],
+        "evaluation": [
+          "Also trained a Logistic Regression classifier and evaluated it using accuracy and F1-score."
+        ],
+        "git_github": [
+          "Built a FastAPI endpoint and published project code to GitHub."
+        ],
+        "additional_technology": [
+          "Built a Python RAG application that retrieves document chunks and generates grounded answers.",
+          "Built a FastAPI endpoint and published project code to GitHub."
+        ]
+      }
+    },
+    "assessment": {
+      "scores": {
+        "python": 1,
+        "ml_fundamentals": 1,
+        "project_evidence": 2,
+        "data_handling": 0,
+        "model_evaluation": 1,
+        "ml_libraries": 1,
+        "git_github": 1,
+        "practical_exposure": 0,
+        "bonus_exposure": 1
+      },
+      "total_score": 8,
+      "max_score": 22,
+      "technical_review_priority": "DEVELOPING_PROFILE",
+      "operational_status": "CONFIRM_LOCATION",
+      "operational_reason": "Candidate is outside Lahore but indicated onsite availability."
+    }
+  },
+  {
+    "candidate_id": "DEMO-025",
+    "name": "Laiba Ahmed",
+    "applied_role": "ML/AI",
+    "operational": {
+      "current_city": "Lahore",
+      "onsite_available": "Yes",
+      "shift_available": "Yes"
+    },
+    "resume": {
+      "filename": "demo_025_resume.pdf",
+      "parse_status": "success",
+      "pages": 1
+    },
+    "manual_review_required": false,
+    "evidence": {
+      "python": {
+        "mentioned": true,
+        "explicit_use": true,
+        "ecosystem_used": true
+      },
+      "machine_learning": {
+        "models_found": [
+          "logistic regression",
+          "random forest"
+        ],
+        "workflow": {
+          "model_training": true,
+          "train_test": true,
+          "model_comparison": true,
+          "feature_work": true,
+          "evaluation": true,
+          "evaluation_reasoning": true,
+          "interface_or_deployment": true
+        }
+      },
+      "data_handling": {
+        "cleaning_or_preprocessing": true,
+        "missing_values": true,
+        "categorical_encoding": true,
+        "feature_work": true,
+        "eda": false,
+        "class_imbalance": false
+      },
+      "evaluation": {
+        "metrics": [
+          "accuracy",
+          "f1-score",
+          "precision",
+          "recall",
+          "roc-auc"
+        ],
+        "confusion_matrix": false,
+        "classification_report": false,
+        "reasoning": true
+      },
+      "ml_libraries": {
+        "found": [
+          "scikit-learn"
+        ],
+        "used_in_body": false
+      },
+      "git_github": {
+        "mentioned": true,
+        "demonstrated": true
+      },
+      "practical_exposure": {
+        "strong": false,
+        "light": true
+      },
+      "bonus": {
+        "mentioned": [
+          "sql",
+          "streamlit"
+        ],
+        "demonstrated": [
+          "streamlit"
+        ]
+      },
+      "snippets": {
+        "python": [
+          "Using Python, Pandas and NumPy, cleaned and preprocessed customer data, handled missing values and categorical variables, and performed feature engineering."
+        ],
+        "ml_workflow": [
+          "Laiba Ahmed BS Student - 7th Semester Customer Churn Prediction.",
+          "Trained Logistic Regression and Random Forest models using a train-test split and compared their performance.",
+          "Built a Streamlit prediction interface and published the project to GitHub with documentation."
+        ],
+        "data_handling": [
+          "Using Python, Pandas and NumPy, cleaned and preprocessed customer data, handled missing values and categorical variables, and performed feature engineering.",
+          "Cleaned and preprocessed customer data, handled missing values and categorical variables, and performed feature engineering."
+        ],
+        "evaluation": [
+          "Evaluated models using accuracy, precision, recall, F1-score and ROC-AUC and selected the final model based on evaluation results."
+        ],
+        "git_github": [
+          "Built a Streamlit prediction interface and published the project to GitHub with documentation."
+        ],
+        "additional_technology": [
+          "Built a Streamlit prediction interface and published the project to GitHub with documentation."
+        ]
+      }
+    },
+    "assessment": {
+      "scores": {
+        "python": 3,
+        "ml_fundamentals": 3,
+        "project_evidence": 3,
+        "data_handling": 3,
+        "model_evaluation": 2,
+        "ml_libraries": 2,
+        "git_github": 2,
+        "practical_exposure": 1,
+        "bonus_exposure": 1
+      },
+      "total_score": 20,
+      "max_score": 22,
+      "technical_review_priority": "PRIORITY_REVIEW",
+      "operational_status": "READY",
+      "operational_reason": "Lahore-based and available for onsite work and the required shift."
+    }
+  },
+  {
+    "candidate_id": "DEMO-026",
+    "name": "Taha Malik",
+    "applied_role": "ML/AI",
+    "operational": {
+      "current_city": "Lahore",
+      "onsite_available": "No",
+      "shift_available": "Yes"
+    },
+    "resume": {
+      "filename": "demo_026_resume.pdf",
+      "parse_status": "success",
+      "pages": 1
+    },
+    "manual_review_required": false,
+    "evidence": {
+      "python": {
+        "mentioned": true,
+        "explicit_use": true,
+        "ecosystem_used": true
+      },
+      "machine_learning": {
+        "models_found": [
+          "logistic regression",
+          "random forest"
+        ],
+        "workflow": {
+          "model_training": true,
+          "train_test": true,
+          "model_comparison": true,
+          "feature_work": true,
+          "evaluation": true,
+          "evaluation_reasoning": true,
+          "interface_or_deployment": true
+        }
+      },
+      "data_handling": {
+        "cleaning_or_preprocessing": true,
+        "missing_values": true,
+        "categorical_encoding": true,
+        "feature_work": true,
+        "eda": false,
+        "class_imbalance": false
+      },
+      "evaluation": {
+        "metrics": [
+          "accuracy",
+          "f1-score",
+          "precision",
+          "recall",
+          "roc-auc"
+        ],
+        "confusion_matrix": false,
+        "classification_report": false,
+        "reasoning": true
+      },
+      "ml_libraries": {
+        "found": [
+          "scikit-learn"
+        ],
+        "used_in_body": false
+      },
+      "git_github": {
+        "mentioned": true,
+        "demonstrated": true
+      },
+      "practical_exposure": {
+        "strong": false,
+        "light": true
+      },
+      "bonus": {
+        "mentioned": [
+          "sql",
+          "streamlit"
+        ],
+        "demonstrated": [
+          "streamlit"
+        ]
+      },
+      "snippets": {
+        "python": [
+          "Using Python, Pandas and NumPy, cleaned and preprocessed customer data, handled missing values and categorical variables, and performed feature engineering."
+        ],
+        "ml_workflow": [
+          "Taha Malik BS Student - 8th Semester Customer Churn Prediction.",
+          "Trained Logistic Regression and Random Forest models using a train-test split and compared their performance.",
+          "Built a Streamlit prediction interface and published the project to GitHub with documentation."
+        ],
+        "data_handling": [
+          "Using Python, Pandas and NumPy, cleaned and preprocessed customer data, handled missing values and categorical variables, and performed feature engineering.",
+          "Cleaned and preprocessed customer data, handled missing values and categorical variables, and performed feature engineering."
+        ],
+        "evaluation": [
+          "Evaluated models using accuracy, precision, recall, F1-score and ROC-AUC and selected the final model based on evaluation results."
+        ],
+        "git_github": [
+          "Built a Streamlit prediction interface and published the project to GitHub with documentation."
+        ],
+        "additional_technology": [
+          "Built a Streamlit prediction interface and published the project to GitHub with documentation."
+        ]
+      }
+    },
+    "assessment": {
+      "scores": {
+        "python": 3,
+        "ml_fundamentals": 3,
+        "project_evidence": 3,
+        "data_handling": 3,
+        "model_evaluation": 2,
+        "ml_libraries": 2,
+        "git_github": 2,
+        "practical_exposure": 1,
+        "bonus_exposure": 1
+      },
+      "total_score": 20,
+      "max_score": 22,
+      "technical_review_priority": "PRIORITY_REVIEW",
+      "operational_status": "REQUIREMENT_MISMATCH",
+      "operational_reason": "Candidate is not available for onsite work."
+    }
+  },
+  {
+    "candidate_id": "DEMO-027",
+    "name": "Muneeb Hassan",
+    "applied_role": "ML/AI",
+    "operational": {
+      "current_city": "Lahore",
+      "onsite_available": "Yes",
+      "shift_available": "Yes"
+    },
+    "resume": {
+      "filename": "demo_027_resume.pdf",
+      "parse_status": "success",
+      "pages": 1
+    },
+    "manual_review_required": false,
+    "evidence": {
+      "python": {
+        "mentioned": true,
+        "explicit_use": true,
+        "ecosystem_used": true
+      },
+      "machine_learning": {
+        "models_found": [
+          "logistic regression",
+          "decision tree",
+          "random forest"
+        ],
+        "workflow": {
+          "model_training": true,
+          "train_test": true,
+          "model_comparison": true,
+          "feature_work": true,
+          "evaluation": true,
+          "evaluation_reasoning": true,
+          "interface_or_deployment": false
+        }
+      },
+      "data_handling": {
+        "cleaning_or_preprocessing": false,
+        "missing_values": true,
+        "categorical_encoding": true,
+        "feature_work": true,
+        "eda": false,
+        "class_imbalance": true
+      },
+      "evaluation": {
+        "metrics": [
+          "f1-score",
+          "precision",
+          "recall",
+          "roc-auc"
+        ],
+        "confusion_matrix": false,
+        "classification_report": false,
+        "reasoning": true
+      },
+      "ml_libraries": {
+        "found": [
+          "scikit-learn"
+        ],
+        "used_in_body": false
+      },
+      "git_github": {
+        "mentioned": true,
+        "demonstrated": true
+      },
+      "practical_exposure": {
+        "strong": false,
+        "light": false
+      },
+      "bonus": {
+        "mentioned": [
+          "sql"
+        ],
+        "demonstrated": []
+      },
+      "snippets": {
+        "python": [
+          "Using Python and Pandas, worked with approximately 8000 records, inspected missing values and class imbalance, encoded categorical variables and performed feature selection."
+        ],
+        "ml_workflow": [
+          "Muneeb Hassan BS Student - Graduated Loan Default Prediction System.",
+          "Compared Logistic Regression, Decision Tree and Random Forest using a train-test split."
+        ],
+        "data_handling": [
+          "Using Python and Pandas, worked with approximately 8000 records, inspected missing values and class imbalance, encoded categorical variables and performed feature selection.",
+          "Worked with approximately 8000 records, inspected missing values and class imbalance, encoded categorical variables and performed feature selection."
+        ],
+        "evaluation": [
+          "Evaluated models using precision, recall, F1-score and ROC-AUC.",
+          "Recall was prioritized because false negatives were more costly for the problem."
+        ],
+        "git_github": [
+          "Published the project to GitHub with a detailed README."
+        ],
+        "additional_technology": []
+      }
+    },
+    "assessment": {
+      "scores": {
+        "python": 3,
+        "ml_fundamentals": 3,
+        "project_evidence": 3,
+        "data_handling": 3,
+        "model_evaluation": 2,
+        "ml_libraries": 2,
+        "git_github": 2,
+        "practical_exposure": 0,
+        "bonus_exposure": 1
+      },
+      "total_score": 19,
+      "max_score": 22,
+      "technical_review_priority": "PRIORITY_REVIEW",
+      "operational_status": "READY",
+      "operational_reason": "Lahore-based and available for onsite work and the required shift."
+    }
+  },
+  {
+    "candidate_id": "DEMO-028",
+    "name": "Amna Tariq",
+    "applied_role": "ML/AI",
+    "operational": {
+      "current_city": "Lahore",
+      "onsite_available": "Yes",
+      "shift_available": "No"
+    },
+    "resume": {
+      "filename": "demo_028_resume.pdf",
+      "parse_status": "success",
+      "pages": 1
+    },
+    "manual_review_required": false,
+    "evidence": {
+      "python": {
+        "mentioned": true,
+        "explicit_use": true,
+        "ecosystem_used": true
+      },
+      "machine_learning": {
+        "models_found": [
+          "logistic regression"
+        ],
+        "workflow": {
+          "model_training": false,
+          "train_test": true,
+          "model_comparison": false,
+          "feature_work": false,
+          "evaluation": true,
+          "evaluation_reasoning": false,
+          "interface_or_deployment": false
+        }
+      },
+      "data_handling": {
+        "cleaning_or_preprocessing": true,
+        "missing_values": false,
+        "categorical_encoding": false,
+        "feature_work": false,
+        "eda": false,
+        "class_imbalance": false
+      },
+      "evaluation": {
+        "metrics": [
+          "accuracy"
+        ],
+        "confusion_matrix": true,
+        "classification_report": false,
+        "reasoning": false
+      },
+      "ml_libraries": {
+        "found": [
+          "scikit-learn"
+        ],
+        "used_in_body": true
+      },
+      "git_github": {
+        "mentioned": true,
+        "demonstrated": false
+      },
+      "practical_exposure": {
+        "strong": false,
+        "light": true
+      },
+      "bonus": {
+        "mentioned": [
+          "sql"
+        ],
+        "demonstrated": []
+      },
+      "snippets": {
+        "python": [
+          "Using Python and Pandas, preprocessed student data and trained a Logistic Regression classification model using Scikit-learn.",
+          "Preprocessed student data and trained a Logistic Regression classification model using Scikit-learn."
+        ],
+        "ml_workflow": [
+          "Amna Tariq BS Student - 7th Semester Student Performance Prediction.",
+          "Using Python and Pandas, preprocessed student data and trained a Logistic Regression classification model using Scikit-learn.",
+          "Preprocessed student data and trained a Logistic Regression classification model using Scikit-learn.",
+          "Used a train-test split and evaluated the model using accuracy and a confusion matrix."
+        ],
+        "data_handling": [
+          "Using Python and Pandas, preprocessed student data and trained a Logistic Regression classification model using Scikit-learn.",
+          "Preprocessed student data and trained a Logistic Regression classification model using Scikit-learn."
+        ],
+        "evaluation": [
+          "Used a train-test split and evaluated the model using accuracy and a confusion matrix."
+        ],
+        "git_github": [],
+        "additional_technology": []
+      }
+    },
+    "assessment": {
+      "scores": {
+        "python": 2,
+        "ml_fundamentals": 1,
+        "project_evidence": 2,
+        "data_handling": 1,
+        "model_evaluation": 2,
+        "ml_libraries": 1,
+        "git_github": 1,
+        "practical_exposure": 1,
+        "bonus_exposure": 1
+      },
+      "total_score": 12,
+      "max_score": 22,
+      "technical_review_priority": "GOOD_POTENTIAL",
+      "operational_status": "REQUIREMENT_MISMATCH",
+      "operational_reason": "Candidate is not available for the required shift."
+    }
+  },
+  {
+    "candidate_id": "DEMO-029",
+    "name": "Rafay Ahmed",
+    "applied_role": "ML/AI",
+    "operational": {
+      "current_city": "Lahore",
+      "onsite_available": "Yes",
+      "shift_available": "Yes"
+    },
+    "resume": {
+      "filename": "demo_029_resume.pdf",
+      "parse_status": "success",
+      "pages": 1
+    },
+    "manual_review_required": false,
+    "evidence": {
+      "python": {
+        "mentioned": true,
+        "explicit_use": true,
+        "ecosystem_used": true
+      },
+      "machine_learning": {
+        "models_found": [
+          "logistic regression"
+        ],
+        "workflow": {
+          "model_training": false,
+          "train_test": true,
+          "model_comparison": false,
+          "feature_work": false,
+          "evaluation": true,
+          "evaluation_reasoning": false,
+          "interface_or_deployment": false
+        }
+      },
+      "data_handling": {
+        "cleaning_or_preprocessing": true,
+        "missing_values": false,
+        "categorical_encoding": false,
+        "feature_work": false,
+        "eda": false,
+        "class_imbalance": false
+      },
+      "evaluation": {
+        "metrics": [
+          "accuracy"
+        ],
+        "confusion_matrix": true,
+        "classification_report": false,
+        "reasoning": false
+      },
+      "ml_libraries": {
+        "found": [
+          "scikit-learn"
+        ],
+        "used_in_body": true
+      },
+      "git_github": {
+        "mentioned": true,
+        "demonstrated": false
+      },
+      "practical_exposure": {
+        "strong": false,
+        "light": true
+      },
+      "bonus": {
+        "mentioned": [
+          "sql"
+        ],
+        "demonstrated": []
+      },
+      "snippets": {
+        "python": [
+          "Using Python and Pandas, preprocessed student data and trained a Logistic Regression classification model using Scikit-learn.",
+          "Preprocessed student data and trained a Logistic Regression classification model using Scikit-learn."
+        ],
+        "ml_workflow": [
+          "Rafay Ahmed BS Student - 8th Semester Student Performance Prediction.",
+          "Using Python and Pandas, preprocessed student data and trained a Logistic Regression classification model using Scikit-learn.",
+          "Preprocessed student data and trained a Logistic Regression classification model using Scikit-learn.",
+          "Used a train-test split and evaluated the model using accuracy and a confusion matrix."
+        ],
+        "data_handling": [
+          "Using Python and Pandas, preprocessed student data and trained a Logistic Regression classification model using Scikit-learn.",
+          "Preprocessed student data and trained a Logistic Regression classification model using Scikit-learn."
+        ],
+        "evaluation": [
+          "Used a train-test split and evaluated the model using accuracy and a confusion matrix."
+        ],
+        "git_github": [],
+        "additional_technology": []
+      }
+    },
+    "assessment": {
+      "scores": {
+        "python": 2,
+        "ml_fundamentals": 1,
+        "project_evidence": 2,
+        "data_handling": 1,
+        "model_evaluation": 2,
+        "ml_libraries": 1,
+        "git_github": 1,
+        "practical_exposure": 1,
+        "bonus_exposure": 1
+      },
+      "total_score": 12,
+      "max_score": 22,
+      "technical_review_priority": "GOOD_POTENTIAL",
+      "operational_status": "READY",
+      "operational_reason": "Lahore-based and available for onsite work and the required shift."
+    }
+  },
+  {
+    "candidate_id": "DEMO-030",
+    "name": "Noor Fatima",
+    "applied_role": "ML/AI",
+    "operational": {
+      "current_city": "Lahore",
+      "onsite_available": "Yes",
+      "shift_available": "Yes"
+    },
+    "resume": {
+      "filename": "demo_030_missing_resume.pdf",
+      "parse_status": "failed",
+      "pages": 0
+    },
+    "manual_review_required": true,
+    "manual_review_reason": "Resume file not found."
+  }
+]
