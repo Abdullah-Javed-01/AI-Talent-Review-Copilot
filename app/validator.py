@@ -1,7 +1,8 @@
 import pandas as pd
 
+from role_rubrics import SUPPORTED_ROLES
 
-SUPPORTED_ROLES = {"ML/AI"}
+
 YES_NO_VALUES = {"Yes", "No"}
 
 REQUIRED_COLUMNS = [
@@ -28,7 +29,6 @@ def is_blank(series):
 def validate_applications(applications):
     issues = []
 
-    # Check required columns first
     missing_columns = [
         column
         for column in REQUIRED_COLUMNS
@@ -69,63 +69,43 @@ def validate_applications(applications):
                 }
             )
 
-    # Missing candidate ID
     missing_id = is_blank(applications["candidate_id"])
+    add_issues(missing_id, "candidate_id", "Candidate ID is missing.")
 
-    add_issues(
-        missing_id,
-        "candidate_id",
-        "Candidate ID is missing.",
-    )
-
-    # Duplicate candidate IDs
     duplicate_id = candidate_ids.duplicated(keep=False) & ~missing_id
+    add_issues(duplicate_id, "candidate_id", "Duplicate candidate ID.")
 
-    add_issues(
-        duplicate_id,
-        "candidate_id",
-        "Duplicate candidate ID.",
-    )
-
-    # Unsupported roles
     invalid_role = (
         ~roles.isin(SUPPORTED_ROLES)
         & ~is_blank(applications["applied_role"])
     )
-
     add_issues(
         invalid_role,
         "applied_role",
         "Unsupported internship role.",
     )
 
-    # Invalid shift value
     invalid_shift = (
         ~shifts.isin(YES_NO_VALUES)
         & ~is_blank(applications["shift_available"])
     )
-
     add_issues(
         invalid_shift,
         "shift_available",
         "Shift availability must be Yes or No.",
     )
 
-    # Invalid onsite value
     invalid_onsite = (
         ~onsite.isin(YES_NO_VALUES)
         & ~is_blank(applications["onsite_available"])
     )
-
     add_issues(
         invalid_onsite,
         "onsite_available",
         "Onsite availability must be Yes or No.",
     )
 
-    # Missing resume filename
     missing_resume = is_blank(applications["resume_filename"])
-
     add_issues(
         missing_resume,
         "resume_filename",
@@ -134,10 +114,5 @@ def validate_applications(applications):
 
     return pd.DataFrame(
         issues,
-        columns=[
-            "row",
-            "candidate_id",
-            "field",
-            "message",
-        ],
+        columns=["row", "candidate_id", "field", "message"],
     )
