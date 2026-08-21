@@ -17,7 +17,7 @@ st.set_page_config(
 )
 
 st.markdown(
-    '''
+    """
     <style>
     .block-container {padding-top: 1.5rem; padding-bottom: 3rem; max-width: 1480px;}
     div[data-testid="stMetric"] {
@@ -35,21 +35,30 @@ st.markdown(
     button[data-baseweb="tab"] {font-weight: 650;}
     section[data-testid="stSidebar"] {border-right: 1px solid rgba(128,128,128,.18);}
     .prototype-chip {
-        display:inline-block; padding:.28rem .62rem;
+        display:inline-block;
+        padding:.28rem .62rem;
         border:1px solid rgba(128,128,128,.32);
-        border-radius:999px; font-size:.78rem; font-weight:650; opacity:.82;
+        border-radius:999px;
+        font-size:.78rem;
+        font-weight:650;
+        opacity:.82;
         margin-top:.35rem;
     }
     .candidate-kicker {font-size:.86rem; opacity:.72; margin-top:-.35rem; margin-bottom:.8rem;}
     </style>
-    ''',
+    """,
     unsafe_allow_html=True,
 )
 
 
 def pretty_label(value):
-    if value is None or (isinstance(value, float) and pd.isna(value)):
+    if value is None:
         return "—"
+    try:
+        if pd.isna(value):
+            return "—"
+    except (TypeError, ValueError):
+        pass
     return str(value).replace("_", " ").title()
 
 
@@ -72,17 +81,17 @@ decisions = load_decisions()
 
 rows = []
 for profile in profiles:
-    assessment = profile.get("assessment", {})
+    assessment = profile.get("assessment") or {}
     rows.append(
         {
-            "Candidate ID": profile["candidate_id"],
-            "Name": profile["name"],
-            "Role": profile["applied_role"],
+            "Candidate ID": profile.get("candidate_id", "UNKNOWN"),
+            "Name": profile.get("name", "Unknown candidate"),
+            "Role": profile.get("applied_role", "—"),
             "Evidence": assessment.get("total_score"),
             "Priority": assessment.get("technical_review_priority", "MANUAL_REVIEW"),
             "Operational": assessment.get("operational_status", "MANUAL_REVIEW"),
             "Manual Review": profile.get("manual_review_required", False),
-            "Decision": decisions.get(profile["candidate_id"], "PENDING"),
+            "Decision": decisions.get(profile.get("candidate_id"), "PENDING"),
         }
     )
 
@@ -92,11 +101,17 @@ with st.sidebar:
     st.markdown("## Review Filters")
     st.caption("Narrow the queue without changing candidate assessments.")
 
-    search_query = st.text_input("Search candidates", placeholder="Name or candidate ID")
+    search_query = st.text_input("Search", placeholder="Name or candidate ID")
     selected_priority = st.selectbox(
         "Technical priority",
-        ["All", "PRIORITY_REVIEW", "GOOD_POTENTIAL", "DEVELOPING_PROFILE",
-         "INSUFFICIENT_EVIDENCE", "MANUAL_REVIEW"],
+        [
+            "All",
+            "PRIORITY_REVIEW",
+            "GOOD_POTENTIAL",
+            "DEVELOPING_PROFILE",
+            "INSUFFICIENT_EVIDENCE",
+            "MANUAL_REVIEW",
+        ],
         format_func=pretty_label,
     )
     selected_operational = st.selectbox(
@@ -112,9 +127,7 @@ with st.sidebar:
     minimum_score = st.slider("Minimum evidence score", 0, 22, 0)
 
     st.divider()
-    st.caption(
-        "Technical evidence and operational fit are intentionally separated."
-    )
+    st.caption("Technical evidence and operational fit are intentionally separated.")
 
 filtered_df = df.copy()
 
@@ -130,8 +143,8 @@ filtered_df = filtered_df[filtered_df["Evidence"].fillna(0) >= minimum_score]
 if search_query:
     query = search_query.strip().lower()
     filtered_df = filtered_df[
-        filtered_df["Candidate ID"].str.lower().str.contains(query, regex=False)
-        | filtered_df["Name"].str.lower().str.contains(query, regex=False)
+        filtered_df["Candidate ID"].astype(str).str.lower().str.contains(query, regex=False)
+        | filtered_df["Name"].astype(str).str.lower().str.contains(query, regex=False)
     ]
 
 title_col, badge_col = st.columns([5, 1])
@@ -197,48 +210,71 @@ with candidate_tab:
     available_candidates = filtered_df["Candidate ID"].tolist()
 
     if not available_candidates:
-        st.warning("No candidates match the current filters. Adjust the filters in the sidebar.")
+        st.warning("No candidates match the current filters. Adjust the sidebar filters.")
     else:
         labels = {
             row["Candidate ID"]: f"{row['Name']} · {row['Candidate ID']}"
             for _, row in filtered_df.iterrows()
         }
+
         selected_candidate_id = st.selectbox(
             "Select candidate",
             available_candidates,
-            format_func=lambda candidate_id: labels[candidate_id],
+            format_func=lambda candidate_id: labels.get(candidate_id, candidate_id),
         )
 
         selected_profile = next(
-            profile for profile in profiles
-            if profile["candidate_id"] == selected_candidate_id
+            profile
+            for profile in profiles
+            if profile.get("candidate_id") == selected_candidate_id
         )
-        assessment = selected_profile.get("assessment")
-        operational = selected_profile.get("operational", {})
+
+        assessment = selected_profile.get("assessment") or {}
+        operational = selected_profile.get("operational") or {}
+        evidence = selected_profile.get("evidence") or {}
         current_decision = get_decision(selected_candidate_id)
+
+        manual_review = bool(
+            selected_profile.get("manual_review_required")
+            or not assessment
+            or "technical_review_priority" not in assessment
+        )
+
+        evidence_score = assessment.get("total_score")
+        review_priority = assessment.get("technical_review_priority", "MANUAL_REVIEW")
+        operational_status = assessment.get("operational_status", "MANUAL_REVIEW")
+        operational_reason = assessment.get(
+            "operational_reason",
+            "This profile requires recruiter review before automated prioritization can be trusted.",
+        )
 
         c1, c2, c3 = st.columns([3, 1, 2])
         with c1:
-            st.subheader(selected_profile["name"])
+            st.subheader(selected_profile.get("name", "Unknown candidate"))
             st.markdown(
-                f'<div class="candidate-kicker">{selected_profile["candidate_id"]} · '
-                f'{selected_profile["applied_role"]} Intern</div>',
+                f'<div class="candidate-kicker">{selected_profile.get("candidate_id", "—")} · '
+                f'{selected_profile.get("applied_role", "—")} Intern</div>',
                 unsafe_allow_html=True,
             )
         with c2:
-            st.metric("Evidence", f"{assessment['total_score']}/22" if assessment else "Manual")
-        with c3:
             st.metric(
-                "Review Priority",
-                pretty_label(assessment["technical_review_priority"]) if assessment else "Manual Review",
+                "Evidence",
+                f"{evidence_score}/{assessment.get('max_score', 22)}"
+                if evidence_score is not None
+                else "Manual",
             )
+        with c3:
+            st.metric("Review Priority", pretty_label(review_priority))
 
-        if selected_profile.get("manual_review_required"):
+        if manual_review:
             st.error(
                 "Manual review required: "
-                + selected_profile.get("manual_review_reason", "Resume could not be processed.")
+                + selected_profile.get(
+                    "manual_review_reason",
+                    "The profile is missing a complete automated assessment.",
+                )
             )
-            resume = selected_profile.get("resume", {})
+            resume = selected_profile.get("resume") or {}
             r1, r2, r3 = st.columns(3)
             r1.metric("Resume Status", pretty_label(resume.get("parse_status")))
             r2.metric("Current City", operational.get("current_city", "—"))
@@ -248,27 +284,26 @@ with candidate_tab:
             o1.metric("Location", operational.get("current_city", "—"))
             o2.metric("Onsite", operational.get("onsite_available", "—"))
             o3.metric("Required Shift", operational.get("shift_available", "—"))
-            o4.metric("Operational", pretty_label(assessment["operational_status"]))
-            st.caption(assessment["operational_reason"])
+            o4.metric("Operational", pretty_label(operational_status))
+            st.caption(operational_reason)
 
-            evidence = selected_profile["evidence"]
-            workflow = evidence["machine_learning"]["workflow"]
-            python_data = evidence["python"]
+            workflow = (evidence.get("machine_learning") or {}).get("workflow") or {}
+            python_data = evidence.get("python") or {}
 
             st.markdown("### Why this candidate surfaced")
             surfaced_items = []
 
-            if python_data["mentioned"] and python_data["ecosystem_used"]:
+            if python_data.get("mentioned") and python_data.get("ecosystem_used"):
                 surfaced_items.append("Python is supported by practical project evidence.")
-            elif python_data["mentioned"]:
+            elif python_data.get("mentioned"):
                 surfaced_items.append("Python is mentioned, but supporting project evidence is limited.")
-            if workflow["model_training"]:
+            if workflow.get("model_training"):
                 surfaced_items.append("Model training evidence is present.")
-            if workflow["model_comparison"]:
+            if workflow.get("model_comparison"):
                 surfaced_items.append("Model comparison evidence is present.")
-            if workflow["evaluation"]:
+            if workflow.get("evaluation"):
                 surfaced_items.append("Model evaluation evidence is present.")
-            if workflow["evaluation_reasoning"]:
+            if workflow.get("evaluation_reasoning"):
                 surfaced_items.append("Evaluation reasoning is demonstrated.")
 
             if surfaced_items:
@@ -283,18 +318,26 @@ with candidate_tab:
             else:
                 st.caption("The resume contains limited supporting evidence for this rubric.")
 
-            scores = assessment["scores"]
+            scores = assessment.get("scores") or {}
+            score_rows = [
+                ("Python", "python", 3),
+                ("ML Fundamentals", "ml_fundamentals", 3),
+                ("Project Evidence", "project_evidence", 3),
+                ("Data Handling", "data_handling", 3),
+                ("Model Evaluation", "model_evaluation", 2),
+                ("ML Libraries", "ml_libraries", 2),
+                ("Git / GitHub", "git_github", 2),
+                ("Practical Exposure", "practical_exposure", 2),
+                ("Bonus Exposure", "bonus_exposure", 2),
+            ]
             score_df = pd.DataFrame(
                 [
-                    {"Criterion": "Python", "Score": scores["python"], "Maximum": 3},
-                    {"Criterion": "ML Fundamentals", "Score": scores["ml_fundamentals"], "Maximum": 3},
-                    {"Criterion": "Project Evidence", "Score": scores["project_evidence"], "Maximum": 3},
-                    {"Criterion": "Data Handling", "Score": scores["data_handling"], "Maximum": 3},
-                    {"Criterion": "Model Evaluation", "Score": scores["model_evaluation"], "Maximum": 2},
-                    {"Criterion": "ML Libraries", "Score": scores["ml_libraries"], "Maximum": 2},
-                    {"Criterion": "Git / GitHub", "Score": scores["git_github"], "Maximum": 2},
-                    {"Criterion": "Practical Exposure", "Score": scores["practical_exposure"], "Maximum": 2},
-                    {"Criterion": "Bonus Exposure", "Score": scores["bonus_exposure"], "Maximum": 2},
+                    {
+                        "Criterion": label,
+                        "Score": scores.get(key, 0),
+                        "Maximum": maximum,
+                    }
+                    for label, key, maximum in score_rows
                 ]
             )
 
@@ -303,23 +346,24 @@ with candidate_tab:
 
             st.markdown("### Evidence at a glance")
             e1, e2 = st.columns(2)
+
+            machine_learning = evidence.get("machine_learning") or {}
+            evaluation = evidence.get("evaluation") or {}
+            ml_libraries = evidence.get("ml_libraries") or {}
+            bonus = evidence.get("bonus") or {}
+
             with e1:
                 st.markdown("**ML Models**")
-                render_bullets(
-                    evidence["machine_learning"]["models_found"],
-                    "No demonstrated models found.",
-                )
+                render_bullets(machine_learning.get("models_found", []), "No demonstrated models found.")
                 st.markdown("**Evaluation Metrics**")
-                render_bullets(
-                    evidence["evaluation"]["metrics"],
-                    "No evaluation metrics found.",
-                )
+                render_bullets(evaluation.get("metrics", []), "No evaluation metrics found.")
+
             with e2:
                 st.markdown("**ML Libraries**")
-                render_bullets(evidence["ml_libraries"]["found"], "No ML libraries found.")
+                render_bullets(ml_libraries.get("found", []), "No ML libraries found.")
                 st.markdown("**Additional Technologies**")
                 render_bullets(
-                    evidence["bonus"]["demonstrated"],
+                    bonus.get("demonstrated", []),
                     "No demonstrated additional technologies found.",
                 )
 
@@ -329,7 +373,7 @@ with candidate_tab:
                 "Skills and certificate lists are excluded from strong evidence excerpts."
             )
 
-            snippets = evidence.get("snippets", {})
+            snippets = evidence.get("snippets") or {}
             snippet_sections = [
                 ("python", "Python / Technical Usage"),
                 ("ml_workflow", "Machine Learning Workflow"),
@@ -366,16 +410,30 @@ with candidate_tab:
                 "the final decision remains with the recruiter."
             )
 
-        st.caption(f"Current status: **{pretty_label(current_decision)}**")
+        st.caption(f"Current status: {pretty_label(current_decision)}")
 
         d1, d2, d3 = st.columns(3)
-        if d1.button("Shortlist", key=f"shortlist_{selected_candidate_id}", use_container_width=True):
+        if d1.button(
+            "Shortlist",
+            key=f"shortlist_{selected_candidate_id}",
+            use_container_width=True,
+        ):
             save_decision(selected_candidate_id, "SHORTLISTED")
             st.rerun()
-        if d2.button("Hold", key=f"hold_{selected_candidate_id}", use_container_width=True):
+
+        if d2.button(
+            "Hold",
+            key=f"hold_{selected_candidate_id}",
+            use_container_width=True,
+        ):
             save_decision(selected_candidate_id, "HOLD")
             st.rerun()
-        if d3.button("Not Selected", key=f"not_selected_{selected_candidate_id}", use_container_width=True):
+
+        if d3.button(
+            "Not Selected",
+            key=f"not_selected_{selected_candidate_id}",
+            use_container_width=True,
+        ):
             save_decision(selected_candidate_id, "NOT_SELECTED")
             st.rerun()
 
