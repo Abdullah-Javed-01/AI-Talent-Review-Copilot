@@ -39,6 +39,33 @@ st.markdown(
         color: var(--ab-text);
     }
 
+    /* Keep Streamlit's collapsed-sidebar button, but remove the empty top strip. */
+    header[data-testid="stHeader"] {
+        height: 0 !important;
+        min-height: 0 !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        overflow: visible !important;
+    }
+
+    div[data-testid="stSidebarCollapsedControl"] {
+        position: fixed !important;
+        top: 0.75rem !important;
+        left: 0.75rem !important;
+        z-index: 1000000 !important;
+        background: rgba(13, 22, 40, 0.92) !important;
+        border: 1px solid rgba(92, 137, 255, 0.28) !important;
+        border-radius: 9px !important;
+        padding: 2px !important;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18) !important;
+        backdrop-filter: blur(8px);
+    }
+
+    div[data-testid="stToolbar"],
+    div[data-testid="stDecoration"] {
+        display: none !important;
+    }
+
     .block-container {
         padding-top: 1.35rem;
         padding-bottom: 3rem;
