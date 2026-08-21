@@ -7,7 +7,7 @@ textColor = "#F7F9FF"
 font = "sans serif"
 
 [ui]
-hideTopBar = true
+hideTopBar = false
 
 [client]
 toolbarMode = "minimal"
