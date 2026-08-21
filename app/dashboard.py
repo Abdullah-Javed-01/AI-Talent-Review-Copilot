@@ -19,32 +19,190 @@ st.set_page_config(
 st.markdown(
     """
     <style>
-    .block-container {padding-top: 1.5rem; padding-bottom: 3rem; max-width: 1480px;}
+    :root {
+        --ab-bg: #050b18;
+        --ab-panel: #0d1628;
+        --ab-panel-2: #111c31;
+        --ab-primary: #2258f5;
+        --ab-primary-2: #3f7dff;
+        --ab-cyan: #6bd5ff;
+        --ab-border: rgba(92, 137, 255, 0.22);
+        --ab-text: #f7f9ff;
+        --ab-muted: #aab6d0;
+    }
+
+    .stApp {
+        background:
+            radial-gradient(circle at 78% -10%, rgba(54, 110, 255, 0.18), transparent 32%),
+            radial-gradient(circle at 10% 12%, rgba(53, 157, 255, 0.10), transparent 28%),
+            linear-gradient(180deg, #07101f 0%, var(--ab-bg) 62%, #040914 100%);
+        color: var(--ab-text);
+    }
+
+    .block-container {
+        padding-top: 1.35rem;
+        padding-bottom: 3rem;
+        max-width: 1480px;
+    }
+
+    section[data-testid="stSidebar"] {
+        background:
+            linear-gradient(180deg, rgba(34,88,245,0.16) 0%, rgba(13,22,40,0.98) 18%, rgba(6,12,24,0.99) 100%);
+        border-right: 1px solid var(--ab-border);
+    }
+
+    section[data-testid="stSidebar"] hr {
+        border-color: rgba(105, 141, 255, 0.18);
+    }
+
+    h1, h2, h3, h4, h5, h6, p, label, span, div {
+        color: var(--ab-text);
+    }
+
+    .ab-hero {
+        position: relative;
+        overflow: hidden;
+        padding: 1.45rem 1.6rem 1.35rem;
+        border-radius: 18px;
+        border: 1px solid rgba(111, 153, 255, 0.30);
+        background:
+            radial-gradient(circle at 82% 15%, rgba(107,213,255,0.20), transparent 24%),
+            linear-gradient(112deg, rgba(34,88,245,0.96), rgba(24,70,185,0.82) 46%, rgba(11,25,59,0.94));
+        box-shadow: 0 18px 45px rgba(0,0,0,0.22);
+        margin-bottom: 1rem;
+    }
+
+    .ab-hero::after {
+        content: "";
+        position: absolute;
+        width: 280px;
+        height: 280px;
+        right: -90px;
+        top: -120px;
+        border: 1px solid rgba(255,255,255,0.10);
+        border-radius: 50%;
+        box-shadow:
+            0 0 0 34px rgba(255,255,255,0.025),
+            0 0 0 70px rgba(255,255,255,0.018);
+        pointer-events: none;
+    }
+
+    .ab-eyebrow {
+        font-size: 0.76rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        font-weight: 750;
+        color: rgba(236,244,255,0.80);
+        margin-bottom: 0.55rem;
+    }
+
+    .ab-title {
+        margin: 0;
+        font-size: clamp(2rem, 4vw, 3.25rem);
+        line-height: 1.02;
+        font-weight: 850;
+        color: #ffffff;
+    }
+
+    .ab-subtitle {
+        margin-top: 0.65rem;
+        max-width: 760px;
+        font-size: 1rem;
+        color: rgba(240,246,255,0.86);
+    }
+
+    .ab-chip {
+        display: inline-block;
+        margin-top: 0.9rem;
+        padding: 0.34rem 0.7rem;
+        border-radius: 999px;
+        border: 1px solid rgba(255,255,255,0.20);
+        background: rgba(255,255,255,0.08);
+        color: #ffffff;
+        font-size: 0.76rem;
+        font-weight: 700;
+    }
+
     div[data-testid="stMetric"] {
-        background: rgba(255,255,255,.035);
-        border: 1px solid rgba(128,128,128,.22);
-        padding: 15px 17px;
-        border-radius: 12px;
+        background:
+            linear-gradient(180deg, rgba(18,30,52,0.96), rgba(10,18,33,0.97));
+        border: 1px solid var(--ab-border);
+        padding: 16px 18px;
+        border-radius: 14px;
+        box-shadow: 0 10px 26px rgba(0,0,0,0.12);
     }
-    div[data-testid="stDataFrame"] {border-radius: 12px; overflow: hidden;}
-    .stButton > button, .stDownloadButton > button {
-        border-radius: 9px;
+
+    div[data-testid="stMetricLabel"] {
+        color: var(--ab-muted);
+        font-size: 0.82rem;
+        font-weight: 650;
+    }
+
+    div[data-testid="stMetricValue"] {
+        color: #ffffff;
+    }
+
+    div[data-testid="stDataFrame"] {
+        border-radius: 14px;
+        overflow: hidden;
+        border: 1px solid var(--ab-border);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    }
+
+    .stButton > button,
+    .stDownloadButton > button {
+        border-radius: 10px;
         min-height: 42px;
-        font-weight: 600;
+        font-weight: 700;
+        border: 1px solid rgba(80,127,255,0.55);
+        background: linear-gradient(180deg, rgba(34,88,245,0.95), rgba(24,69,198,0.95));
+        color: #ffffff;
+        box-shadow: 0 8px 20px rgba(34,88,245,0.14);
     }
-    button[data-baseweb="tab"] {font-weight: 650;}
-    section[data-testid="stSidebar"] {border-right: 1px solid rgba(128,128,128,.18);}
-    .prototype-chip {
-        display:inline-block;
-        padding:.28rem .62rem;
-        border:1px solid rgba(128,128,128,.32);
-        border-radius:999px;
-        font-size:.78rem;
-        font-weight:650;
-        opacity:.82;
-        margin-top:.35rem;
+
+    .stButton > button:hover,
+    .stDownloadButton > button:hover {
+        border-color: rgba(107,213,255,0.85);
+        background: linear-gradient(180deg, #2f69ff, #1d50de);
+        color: #ffffff;
     }
-    .candidate-kicker {font-size:.86rem; opacity:.72; margin-top:-.35rem; margin-bottom:.8rem;}
+
+    button[data-baseweb="tab"] {
+        font-weight: 700;
+        color: var(--ab-muted);
+    }
+
+    button[data-baseweb="tab"][aria-selected="true"] {
+        color: #7fb5ff;
+    }
+
+    div[data-baseweb="select"] > div,
+    .stTextInput input,
+    .stNumberInput input {
+        background: rgba(7,14,28,0.92) !important;
+        border: 1px solid rgba(88,128,235,0.26) !important;
+        color: #ffffff !important;
+        border-radius: 10px !important;
+    }
+
+    div[data-testid="stAlert"] {
+        border-radius: 13px;
+        border: 1px solid rgba(85,136,255,0.26);
+        background: rgba(20,53,104,0.40);
+    }
+
+    details {
+        border-radius: 11px !important;
+        border-color: rgba(88,128,235,0.20) !important;
+        background: rgba(8,15,29,0.62) !important;
+    }
+
+    .candidate-kicker {
+        font-size: .86rem;
+        color: var(--ab-muted);
+        margin-top: -.35rem;
+        margin-bottom: .8rem;
+    }
     </style>
     """,
     unsafe_allow_html=True,
@@ -147,17 +305,19 @@ if search_query:
         | filtered_df["Name"].astype(str).str.lower().str.contains(query, regex=False)
     ]
 
-title_col, badge_col = st.columns([5, 1])
-
-with title_col:
-    st.title("Talent Review Copilot")
-    st.caption("Evidence-first candidate prioritization for high-volume internship hiring.")
-
-with badge_col:
-    st.markdown(
-        '<div class="prototype-chip">Independent Prototype</div>',
-        unsafe_allow_html=True,
-    )
+st.markdown(
+    """
+    <div class="ab-hero">
+        <div class="ab-eyebrow">Alphabridge-inspired · Independent prototype</div>
+        <div class="ab-title">Talent Review Copilot</div>
+        <div class="ab-subtitle">
+            Evidence-first candidate prioritization for high-volume internship hiring.
+        </div>
+        <div class="ab-chip">Synthetic demo data · Human decision remains final</div>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
 
 st.info("Demo environment · 100% synthetic candidate data · No real applicant information is used.")
 st.caption("Inspired by a public high-volume hiring use case. This is not an official Alphabridge product.")
@@ -179,7 +339,7 @@ with queue_tab:
     header_col, count_col = st.columns([4, 1])
     with header_col:
         st.subheader("Candidate Review Queue")
-        st.caption("Prioritize strong evidence matches, then verify the supporting resume evidence.")
+        st.caption("Review, filter, and prioritize internship applicants using evidence and operational fit.")
     with count_col:
         st.metric("Visible Candidates", len(filtered_df))
 
