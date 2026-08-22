@@ -1,3 +1,4 @@
+import os
 import re
 import sys
 from pathlib import Path
@@ -21,11 +22,52 @@ NORMALIZED_APPLICATIONS = APPLICATION_DIR / "imported_applications.csv"
 APPLICATION_DIR.mkdir(parents=True, exist_ok=True)
 RESUME_DIR.mkdir(parents=True, exist_ok=True)
 
+
+def _truthy(value):
+    return str(value).strip().lower() in {"1", "true", "yes", "on"}
+
+
+def _public_demo_mode():
+    value = os.getenv("PUBLIC_DEMO_MODE", "false")
+    try:
+        value = st.secrets.get("PUBLIC_DEMO_MODE", value)
+    except Exception:
+        pass
+    return _truthy(value)
+
+
+PUBLIC_DEMO_MODE = _public_demo_mode()
+
 st.title("Data Intake")
 st.caption(
     "Import application responses and candidate CVs without touching the codebase. "
     "Technical evidence is extracted only after the actual CV file is available."
 )
+
+if PUBLIC_DEMO_MODE:
+    st.warning(
+        "Public demo mode is enabled. Real applicant uploads are disabled here to avoid collecting "
+        "personal data in an unauthenticated public deployment."
+    )
+    st.info(
+        "The full intake workflow remains available in a local or authenticated deployment: "
+        "Google Forms/Sheets export → CV upload/retrieval → evidence extraction → role-specific scoring → recruiter review."
+    )
+    with st.expander("How the private recruiter intake works", expanded=True):
+        st.markdown(
+            """
+            **Application Form** → name, email, phone, university, semester, role, city/address, shift, onsite, LinkedIn  
+            **CV / Resume** → technical skills, projects, tools, model/data/deployment evidence  
+            **Role rubric** → deterministic evidence score and review priority  
+            **Recruiter** → shortlist, hold, or not selected
+
+            Google Drive links can be preserved as provenance. Direct file retrieval still requires authorized Google access.
+            """
+        )
+    st.caption(
+        "Set PUBLIC_DEMO_MODE=false only in a private/local environment where applicant data handling is authorized."
+    )
+    st.stop()
 
 st.info(
     "Upload a Google Forms/Sheets export plus the corresponding PDF CV files. "
