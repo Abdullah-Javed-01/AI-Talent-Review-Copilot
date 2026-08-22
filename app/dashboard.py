@@ -262,6 +262,42 @@ def load_profiles():
 profiles = load_profiles()
 decisions = load_decisions()
 
+candidate_ids = [
+    str(profile.get("candidate_id", "")).strip().upper()
+    for profile in profiles
+]
+
+
+def _is_demo_candidate(candidate_id):
+    return candidate_id.startswith(("DEMO-", "SYN-"))
+
+
+if profiles and all(_is_demo_candidate(candidate_id) for candidate_id in candidate_ids):
+    dataset_mode = "synthetic"
+    dataset_chip = "Synthetic demo data · Human decision remains final"
+    dataset_notice = (
+        "Demo environment · 100% synthetic candidate data · "
+        "No real applicant information is used."
+    )
+elif profiles and all(not _is_demo_candidate(candidate_id) for candidate_id in candidate_ids):
+    dataset_mode = "imported"
+    dataset_chip = "Imported applicant data · Human decision remains final"
+    dataset_notice = (
+        "Applicant data was imported from recruiter-provided form responses and resumes. "
+        "Technical evidence is extracted from submitted CVs, while the final hiring decision remains with the recruiter."
+    )
+elif profiles:
+    dataset_mode = "mixed"
+    dataset_chip = "Mixed demo + imported data · Human decision remains final"
+    dataset_notice = (
+        "This workspace contains both synthetic demo candidates and imported applicant data. "
+        "Review data provenance before sharing or exporting results."
+    )
+else:
+    dataset_mode = "empty"
+    dataset_chip = "No candidate data loaded · Human decision remains final"
+    dataset_notice = "No candidate profiles are currently loaded. Use Data Intake to import applications."
+
 rows = []
 for profile in profiles:
     assessment = profile.get("assessment") or {}
@@ -338,20 +374,20 @@ if search_query:
     ]
 
 st.markdown(
-    """
+    f"""
     <div class="ab-hero">
         <div class="ab-eyebrow">Alphabridge-inspired · Independent prototype</div>
         <div class="ab-title">Talent Review Copilot</div>
         <div class="ab-subtitle">
             Evidence-first candidate prioritization for high-volume internship hiring.
         </div>
-        <div class="ab-chip">Synthetic demo data · Human decision remains final</div>
+        <div class="ab-chip">{dataset_chip}</div>
     </div>
     """,
     unsafe_allow_html=True,
 )
 
-st.info("Demo environment · 100% synthetic candidate data · No real applicant information is used.")
+st.info(dataset_notice)
 st.caption("Inspired by a public high-volume hiring use case. This is not an official Alphabridge product.")
 
 m1, m2, m3, m4, m5 = st.columns(5)
