@@ -41,8 +41,8 @@ st.markdown(
 
     /* Keep Streamlit's collapsed-sidebar button, but remove the empty top strip. */
     header[data-testid="stHeader"] {
-        height: 0 !important;
-        min-height: 0 !important;
+        height: 38px !important;
+        min-height: 38px !important;
         background: transparent !important;
         box-shadow: none !important;
         overflow: visible !important;
@@ -61,13 +61,8 @@ st.markdown(
         backdrop-filter: blur(8px);
     }
 
-    div[data-testid="stToolbar"],
-    div[data-testid="stDecoration"] {
-        display: none !important;
-    }
-
     .block-container {
-        padding-top: 1.35rem;
+        padding-top: 1.75rem;
         padding-bottom: 3rem;
         max-width: 1480px;
     }
