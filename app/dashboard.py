@@ -5,6 +5,7 @@ import pandas as pd
 import streamlit as st
 
 from decision_store import get_decision, load_decisions, save_decision
+from role_rubrics import get_role_rubric
 
 ROOT = Path(__file__).resolve().parents[1]
 PROFILE_FILE = ROOT / "data" / "processed" / "candidate_profiles.json"
@@ -39,7 +40,6 @@ st.markdown(
         color: var(--ab-text);
     }
 
-    /* Keep Streamlit's collapsed-sidebar button, but remove the empty top strip. */
     header[data-testid="stHeader"] {
         height: 38px !important;
         min-height: 38px !important;
@@ -268,6 +268,7 @@ for profile in profiles:
             "Name": profile.get("name", "Unknown candidate"),
             "Role": profile.get("applied_role", "—"),
             "Evidence": assessment.get("total_score"),
+            "Max Score": assessment.get("max_score", 22),
             "Priority": assessment.get("technical_review_priority", "MANUAL_REVIEW"),
             "Operational": assessment.get("operational_status", "MANUAL_REVIEW"),
             "Manual Review": profile.get("manual_review_required", False),
@@ -282,6 +283,10 @@ with st.sidebar:
     st.caption("Narrow the queue without changing candidate assessments.")
 
     search_query = st.text_input("Search", placeholder="Name or candidate ID")
+
+    role_options = ["All"] + sorted(df["Role"].dropna().astype(str).unique().tolist())
+    selected_role = st.selectbox("Internship role", role_options)
+
     selected_priority = st.selectbox(
         "Technical priority",
         [
@@ -311,6 +316,8 @@ with st.sidebar:
 
 filtered_df = df.copy()
 
+if selected_role != "All":
+    filtered_df = filtered_df[filtered_df["Role"] == selected_role]
 if selected_priority != "All":
     filtered_df = filtered_df[filtered_df["Priority"] == selected_priority]
 if selected_operational != "All":
@@ -361,7 +368,7 @@ with queue_tab:
     header_col, count_col = st.columns([4, 1])
     with header_col:
         st.subheader("Candidate Review Queue")
-        st.caption("Review, filter, and prioritize internship applicants using evidence and operational fit.")
+        st.caption("Review, filter, and prioritize internship applicants using role-specific evidence and operational fit.")
     with count_col:
         st.metric("Visible Candidates", len(filtered_df))
 
@@ -369,11 +376,15 @@ with queue_tab:
         st.warning("No candidates match the current filters.")
     else:
         display_df = filtered_df[
-            ["Candidate ID", "Name", "Role", "Evidence", "Priority", "Operational", "Decision"]
+            ["Candidate ID", "Name", "Role", "Evidence", "Max Score", "Priority", "Operational", "Decision"]
         ].copy()
-        display_df["Evidence"] = display_df["Evidence"].apply(
-            lambda value: f"{int(value)}/22" if pd.notna(value) else "Manual"
+        display_df["Evidence"] = display_df.apply(
+            lambda row: f"{int(row['Evidence'])}/{int(row['Max Score'])}"
+            if pd.notna(row["Evidence"])
+            else "Manual",
+            axis=1,
         )
+        display_df = display_df.drop(columns=["Max Score"])
         for column in ["Priority", "Operational", "Decision"]:
             display_df[column] = display_df[column].map(pretty_label)
 
@@ -382,7 +393,7 @@ with queue_tab:
         st.download_button(
             "Export current review queue",
             data=filtered_df[
-                ["Candidate ID", "Name", "Role", "Evidence", "Priority", "Operational", "Decision"]
+                ["Candidate ID", "Name", "Role", "Evidence", "Max Score", "Priority", "Operational", "Decision"]
             ].to_csv(index=False).encode("utf-8"),
             file_name="candidate_review_queue.csv",
             mime="text/csv",
@@ -395,7 +406,7 @@ with candidate_tab:
         st.warning("No candidates match the current filters. Adjust the sidebar filters.")
     else:
         labels = {
-            row["Candidate ID"]: f"{row['Name']} · {row['Candidate ID']}"
+            row["Candidate ID"]: f"{row['Name']} · {row['Role']} · {row['Candidate ID']}"
             for _, row in filtered_df.iterrows()
         }
 
@@ -411,6 +422,7 @@ with candidate_tab:
             if profile.get("candidate_id") == selected_candidate_id
         )
 
+        role = selected_profile.get("applied_role", "—")
         assessment = selected_profile.get("assessment") or {}
         operational = selected_profile.get("operational") or {}
         evidence = selected_profile.get("evidence") or {}
@@ -423,27 +435,28 @@ with candidate_tab:
         )
 
         evidence_score = assessment.get("total_score")
+        max_score = assessment.get("max_score", 22)
         review_priority = assessment.get("technical_review_priority", "MANUAL_REVIEW")
         operational_status = assessment.get("operational_status", "MANUAL_REVIEW")
         operational_reason = assessment.get(
             "operational_reason",
             "This profile requires recruiter review before automated prioritization can be trusted.",
         )
+        rubric_name = assessment.get("rubric_name") or (get_role_rubric(role) or {}).get("name", role)
+        criteria = assessment.get("criteria") or (get_role_rubric(role) or {}).get("criteria", [])
 
         c1, c2, c3 = st.columns([3, 1, 2])
         with c1:
             st.subheader(selected_profile.get("name", "Unknown candidate"))
             st.markdown(
                 f'<div class="candidate-kicker">{selected_profile.get("candidate_id", "—")} · '
-                f'{selected_profile.get("applied_role", "—")} Intern</div>',
+                f'{role} · Rubric: {rubric_name}</div>',
                 unsafe_allow_html=True,
             )
         with c2:
             st.metric(
                 "Evidence",
-                f"{evidence_score}/{assessment.get('max_score', 22)}"
-                if evidence_score is not None
-                else "Manual",
+                f"{evidence_score}/{max_score}" if evidence_score is not None else "Manual",
             )
         with c3:
             st.metric("Review Priority", pretty_label(review_priority))
@@ -469,24 +482,46 @@ with candidate_tab:
             o4.metric("Operational", pretty_label(operational_status))
             st.caption(operational_reason)
 
-            workflow = (evidence.get("machine_learning") or {}).get("workflow") or {}
-            python_data = evidence.get("python") or {}
+            scores = assessment.get("scores") or {}
+            score_df = pd.DataFrame(
+                [
+                    {
+                        "Criterion": label,
+                        "Score": scores.get(key, 0),
+                        "Maximum": maximum,
+                    }
+                    for label, key, maximum in criteria
+                ]
+            )
 
             st.markdown("### Why this candidate surfaced")
-            surfaced_items = []
 
-            if python_data.get("mentioned") and python_data.get("ecosystem_used"):
-                surfaced_items.append("Python is supported by practical project evidence.")
-            elif python_data.get("mentioned"):
-                surfaced_items.append("Python is mentioned, but supporting project evidence is limited.")
-            if workflow.get("model_training"):
-                surfaced_items.append("Model training evidence is present.")
-            if workflow.get("model_comparison"):
-                surfaced_items.append("Model comparison evidence is present.")
-            if workflow.get("evaluation"):
-                surfaced_items.append("Model evaluation evidence is present.")
-            if workflow.get("evaluation_reasoning"):
-                surfaced_items.append("Evaluation reasoning is demonstrated.")
+            if role == "ML/AI":
+                workflow = (evidence.get("machine_learning") or {}).get("workflow") or {}
+                python_data = evidence.get("python") or {}
+                surfaced_items = []
+
+                if python_data.get("mentioned") and python_data.get("ecosystem_used"):
+                    surfaced_items.append("Python is supported by practical project evidence.")
+                elif python_data.get("mentioned"):
+                    surfaced_items.append("Python is mentioned, but supporting project evidence is limited.")
+                if workflow.get("model_training"):
+                    surfaced_items.append("Model training evidence is present.")
+                if workflow.get("model_comparison"):
+                    surfaced_items.append("Model comparison evidence is present.")
+                if workflow.get("evaluation"):
+                    surfaced_items.append("Model evaluation evidence is present.")
+                if workflow.get("evaluation_reasoning"):
+                    surfaced_items.append("Evaluation reasoning is demonstrated.")
+            else:
+                signals = evidence.get("signals") or {}
+                snippets = evidence.get("snippets") or {}
+                surfaced_items = []
+                for label, key, _ in criteria:
+                    if snippets.get(key):
+                        surfaced_items.append(f"{label} is demonstrated with contextual resume evidence.")
+                    elif signals.get(key):
+                        surfaced_items.append(f"{label} is mentioned, but supporting context is limited.")
 
             if surfaced_items:
                 left, right = st.columns(2)
@@ -498,56 +533,43 @@ with candidate_tab:
                     for item in surfaced_items[midpoint:]:
                         st.write(f"✅ {item}")
             else:
-                st.caption("The resume contains limited supporting evidence for this rubric.")
+                st.caption("The resume contains limited supporting evidence for this role-specific rubric.")
 
-            scores = assessment.get("scores") or {}
-            score_rows = [
-                ("Python", "python", 3),
-                ("ML Fundamentals", "ml_fundamentals", 3),
-                ("Project Evidence", "project_evidence", 3),
-                ("Data Handling", "data_handling", 3),
-                ("Model Evaluation", "model_evaluation", 2),
-                ("ML Libraries", "ml_libraries", 2),
-                ("Git / GitHub", "git_github", 2),
-                ("Practical Exposure", "practical_exposure", 2),
-                ("Bonus Exposure", "bonus_exposure", 2),
-            ]
-            score_df = pd.DataFrame(
-                [
-                    {
-                        "Criterion": label,
-                        "Score": scores.get(key, 0),
-                        "Maximum": maximum,
-                    }
-                    for label, key, maximum in score_rows
-                ]
-            )
-
-            with st.expander("Evidence score breakdown"):
+            with st.expander("Role-specific evidence score breakdown"):
+                st.caption(f"Rubric: {rubric_name}")
                 st.dataframe(score_df, use_container_width=True, hide_index=True)
 
             st.markdown("### Evidence at a glance")
-            e1, e2 = st.columns(2)
 
-            machine_learning = evidence.get("machine_learning") or {}
-            evaluation = evidence.get("evaluation") or {}
-            ml_libraries = evidence.get("ml_libraries") or {}
-            bonus = evidence.get("bonus") or {}
+            if role == "ML/AI":
+                e1, e2 = st.columns(2)
+                machine_learning = evidence.get("machine_learning") or {}
+                evaluation = evidence.get("evaluation") or {}
+                ml_libraries = evidence.get("ml_libraries") or {}
+                bonus = evidence.get("bonus") or {}
 
-            with e1:
-                st.markdown("**ML Models**")
-                render_bullets(machine_learning.get("models_found", []), "No demonstrated models found.")
-                st.markdown("**Evaluation Metrics**")
-                render_bullets(evaluation.get("metrics", []), "No evaluation metrics found.")
+                with e1:
+                    st.markdown("**ML Models**")
+                    render_bullets(machine_learning.get("models_found", []), "No demonstrated models found.")
+                    st.markdown("**Evaluation Metrics**")
+                    render_bullets(evaluation.get("metrics", []), "No evaluation metrics found.")
 
-            with e2:
-                st.markdown("**ML Libraries**")
-                render_bullets(ml_libraries.get("found", []), "No ML libraries found.")
-                st.markdown("**Additional Technologies**")
-                render_bullets(
-                    bonus.get("demonstrated", []),
-                    "No demonstrated additional technologies found.",
-                )
+                with e2:
+                    st.markdown("**ML Libraries**")
+                    render_bullets(ml_libraries.get("found", []), "No ML libraries found.")
+                    st.markdown("**Additional Technologies**")
+                    render_bullets(
+                        bonus.get("demonstrated", []),
+                        "No demonstrated additional technologies found.",
+                    )
+            else:
+                signals = evidence.get("signals") or {}
+                left, right = st.columns(2)
+                for index, (label, key, _) in enumerate(criteria):
+                    target = left if index % 2 == 0 else right
+                    with target:
+                        st.markdown(f"**{label}**")
+                        render_bullets(signals.get(key, []), "No matching evidence found.")
 
             st.markdown("### Supporting Resume Evidence")
             st.caption(
@@ -555,21 +577,25 @@ with candidate_tab:
                 "Skills and certificate lists are excluded from strong evidence excerpts."
             )
 
-            snippets = evidence.get("snippets") or {}
-            snippet_sections = [
-                ("python", "Python / Technical Usage"),
-                ("ml_workflow", "Machine Learning Workflow"),
-                ("data_handling", "Data Handling"),
-                ("evaluation", "Model Evaluation"),
-                ("git_github", "Git / GitHub"),
-                ("additional_technology", "Additional Technologies"),
-            ]
+            if role == "ML/AI":
+                snippets = evidence.get("snippets") or {}
+                snippet_sections = [
+                    ("python", "Python / Technical Usage"),
+                    ("ml_workflow", "Machine Learning Workflow"),
+                    ("data_handling", "Data Handling"),
+                    ("evaluation", "Model Evaluation"),
+                    ("git_github", "Git / GitHub"),
+                    ("additional_technology", "Additional Technologies"),
+                ]
+            else:
+                snippets = evidence.get("snippets") or {}
+                snippet_sections = [(key, label) for label, key, _ in criteria]
 
             for key, label in snippet_sections:
                 items = snippets.get(key, [])
                 with st.expander(
                     f"{label} · {len(items)} evidence item(s)",
-                    expanded=key in {"ml_workflow", "evaluation"},
+                    expanded=len(items) > 0 and key in {"ml_workflow", "evaluation", "pipelines_etl", "containers", "statistics_eda"},
                 ):
                     if not items:
                         st.caption("No supporting resume evidence found.")
@@ -636,11 +662,15 @@ with shortlist_tab:
         )
     else:
         shortlist_display = shortlisted[
-            ["Candidate ID", "Name", "Role", "Evidence", "Priority", "Operational"]
+            ["Candidate ID", "Name", "Role", "Evidence", "Max Score", "Priority", "Operational"]
         ].copy()
-        shortlist_display["Evidence"] = shortlist_display["Evidence"].apply(
-            lambda value: f"{int(value)}/22" if pd.notna(value) else "Manual"
+        shortlist_display["Evidence"] = shortlist_display.apply(
+            lambda row: f"{int(row['Evidence'])}/{int(row['Max Score'])}"
+            if pd.notna(row["Evidence"])
+            else "Manual",
+            axis=1,
         )
+        shortlist_display = shortlist_display.drop(columns=["Max Score"])
         shortlist_display["Priority"] = shortlist_display["Priority"].map(pretty_label)
         shortlist_display["Operational"] = shortlist_display["Operational"].map(pretty_label)
 
