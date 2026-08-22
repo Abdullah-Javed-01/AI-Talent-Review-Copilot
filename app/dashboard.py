@@ -388,7 +388,7 @@ with queue_tab:
         for column in ["Priority", "Operational", "Decision"]:
             display_df[column] = display_df[column].map(pretty_label)
 
-        st.dataframe(display_df, use_container_width=True, hide_index=True)
+        st.dataframe(display_df, width="stretch", hide_index=True)
 
         st.download_button(
             "Export current review queue",
@@ -537,7 +537,7 @@ with candidate_tab:
 
             with st.expander("Role-specific evidence score breakdown"):
                 st.caption(f"Rubric: {rubric_name}")
-                st.dataframe(score_df, use_container_width=True, hide_index=True)
+                st.dataframe(score_df, width="stretch", hide_index=True)
 
             st.markdown("### Evidence at a glance")
 
@@ -624,7 +624,7 @@ with candidate_tab:
         if d1.button(
             "Shortlist",
             key=f"shortlist_{selected_candidate_id}",
-            use_container_width=True,
+            width="stretch",
         ):
             save_decision(selected_candidate_id, "SHORTLISTED")
             st.rerun()
@@ -632,7 +632,7 @@ with candidate_tab:
         if d2.button(
             "Hold",
             key=f"hold_{selected_candidate_id}",
-            use_container_width=True,
+            width="stretch",
         ):
             save_decision(selected_candidate_id, "HOLD")
             st.rerun()
@@ -640,7 +640,7 @@ with candidate_tab:
         if d3.button(
             "Not Selected",
             key=f"not_selected_{selected_candidate_id}",
-            use_container_width=True,
+            width="stretch",
         ):
             save_decision(selected_candidate_id, "NOT_SELECTED")
             st.rerun()
@@ -674,7 +674,7 @@ with shortlist_tab:
         shortlist_display["Priority"] = shortlist_display["Priority"].map(pretty_label)
         shortlist_display["Operational"] = shortlist_display["Operational"].map(pretty_label)
 
-        st.dataframe(shortlist_display, use_container_width=True, hide_index=True)
+        st.dataframe(shortlist_display, width="stretch", hide_index=True)
 
         st.download_button(
             "Export shortlist",
