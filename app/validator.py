@@ -18,7 +18,6 @@ REQUIRED_COLUMNS = [
     "shift_available",
     "onsite_available",
     "linkedin_url",
-    "resume_filename",
 ]
 
 
@@ -34,6 +33,12 @@ def validate_applications(applications):
         for column in REQUIRED_COLUMNS
         if column not in applications.columns
     ]
+
+    has_resume_filename = "resume_filename" in applications.columns
+    has_resume_source = "resume_source" in applications.columns
+
+    if not has_resume_filename and not has_resume_source:
+        missing_columns.append("resume_filename or resume_source")
 
     for column in missing_columns:
         issues.append(
@@ -105,11 +110,21 @@ def validate_applications(applications):
         "Onsite availability must be Yes or No.",
     )
 
-    missing_resume = is_blank(applications["resume_filename"])
+    if has_resume_filename:
+        filename_blank = is_blank(applications["resume_filename"])
+    else:
+        filename_blank = pd.Series(True, index=applications.index)
+
+    if has_resume_source:
+        source_blank = is_blank(applications["resume_source"])
+    else:
+        source_blank = pd.Series(True, index=applications.index)
+
+    missing_resume = filename_blank & source_blank
     add_issues(
         missing_resume,
-        "resume_filename",
-        "Resume filename is missing.",
+        "resume",
+        "Resume/CV reference is missing.",
     )
 
     return pd.DataFrame(
