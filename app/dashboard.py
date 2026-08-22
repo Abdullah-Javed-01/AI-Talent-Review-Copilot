@@ -239,7 +239,10 @@ def pretty_label(value):
             return "—"
     except (TypeError, ValueError):
         pass
-    return str(value).replace("_", " ").title()
+    text = str(value).strip()
+    if not text:
+        return "—"
+    return text.replace("_", " ").title()
 
 
 def render_bullets(items, empty_message):
@@ -423,8 +426,10 @@ with candidate_tab:
         )
 
         role = selected_profile.get("applied_role", "—")
-        assessment = selected_profile.get("assessment") or {}
+        application_info = selected_profile.get("application") or {}
         operational = selected_profile.get("operational") or {}
+        resume_info = selected_profile.get("resume") or {}
+        assessment = selected_profile.get("assessment") or {}
         evidence = selected_profile.get("evidence") or {}
         current_decision = get_decision(selected_candidate_id)
 
@@ -461,6 +466,23 @@ with candidate_tab:
         with c3:
             st.metric("Review Priority", pretty_label(review_priority))
 
+        st.markdown("### Application Information")
+        st.caption("Source: Application Form")
+        a1, a2, a3 = st.columns(3)
+        a1.markdown(f"**Email**  \n{application_info.get('email') or '—'}")
+        a1.markdown(f"**Phone**  \n{application_info.get('phone') or '—'}")
+        a2.markdown(f"**University**  \n{application_info.get('university') or '—'}")
+        a2.markdown(f"**Semester**  \n{application_info.get('semester') or '—'}")
+        a3.markdown(f"**Applied Role**  \n{application_info.get('applied_role') or role}")
+        linkedin_url = application_info.get("linkedin_url") or ""
+        if linkedin_url:
+            a3.markdown(f"**LinkedIn**  \n[Open profile]({linkedin_url})")
+        else:
+            a3.markdown("**LinkedIn**  \n—")
+
+        st.markdown("### Operational Information")
+        st.caption("Source: Application Form · Operational status is calculated separately from technical evidence.")
+
         if manual_review:
             st.error(
                 "Manual review required: "
@@ -469,17 +491,27 @@ with candidate_tab:
                     "The profile is missing a complete automated assessment.",
                 )
             )
-            resume = selected_profile.get("resume") or {}
-            r1, r2, r3 = st.columns(3)
-            r1.metric("Resume Status", pretty_label(resume.get("parse_status")))
-            r2.metric("Current City", operational.get("current_city", "—"))
-            r3.metric("Decision", pretty_label(current_decision))
+            r1, r2, r3, r4 = st.columns(4)
+            r1.metric("Resume Status", pretty_label(resume_info.get("parse_status")))
+            r2.metric("Current City", operational.get("current_city") or "—")
+            r3.metric("Onsite", operational.get("onsite_available") or "—")
+            r4.metric("Required Shift", operational.get("shift_available") or "—")
+            if operational.get("lahore_address"):
+                st.caption(f"Lahore address: {operational.get('lahore_address')}")
+
+            st.markdown("### Resume / CV")
+            st.caption("Source: Candidate-provided Resume/CV")
+            st.write(f"Parse status: **{pretty_label(resume_info.get('parse_status'))}**")
+            if resume_info.get("source_type") == "remote_url":
+                st.caption("This resume reference requires authorized file retrieval before text extraction can run.")
         else:
             o1, o2, o3, o4 = st.columns(4)
             o1.metric("Location", operational.get("current_city", "—"))
             o2.metric("Onsite", operational.get("onsite_available", "—"))
             o3.metric("Required Shift", operational.get("shift_available", "—"))
             o4.metric("Operational", pretty_label(operational_status))
+            if operational.get("lahore_address"):
+                st.caption(f"Lahore address: {operational.get('lahore_address')}")
             st.caption(operational_reason)
 
             scores = assessment.get("scores") or {}
@@ -495,6 +527,7 @@ with candidate_tab:
             )
 
             st.markdown("### Why this candidate surfaced")
+            st.caption("Source: Resume/CV evidence · Priority is calculated by the deterministic role rubric.")
 
             if role == "ML/AI":
                 workflow = (evidence.get("machine_learning") or {}).get("workflow") or {}
@@ -536,10 +569,11 @@ with candidate_tab:
                 st.caption("The resume contains limited supporting evidence for this role-specific rubric.")
 
             with st.expander("Role-specific evidence score breakdown"):
-                st.caption(f"Rubric: {rubric_name}")
+                st.caption(f"Rubric: {rubric_name} · Source: deterministic scoring from resume evidence")
                 st.dataframe(score_df, width="stretch", hide_index=True)
 
             st.markdown("### Evidence at a glance")
+            st.caption("Source: Candidate-provided Resume/CV")
 
             if role == "ML/AI":
                 e1, e2 = st.columns(2)
@@ -573,7 +607,7 @@ with candidate_tab:
 
             st.markdown("### Supporting Resume Evidence")
             st.caption(
-                "These excerpts come directly from the candidate's resume. "
+                "Source: Candidate-provided Resume/CV · These excerpts come directly from the parsed resume. "
                 "Skills and certificate lists are excluded from strong evidence excerpts."
             )
 
@@ -605,6 +639,7 @@ with candidate_tab:
 
         st.divider()
         st.markdown("### Recruiter Decision")
+        st.caption("Source: Human Recruiter")
 
         if current_decision == "SHORTLISTED":
             st.success("This candidate is currently shortlisted.")
