@@ -4,3 +4,19 @@ __pycache__/
 .env
 .streamlit/secrets.toml
 .DS_Store
+
+Add-Content .gitignore @"
+
+# Recruiter-provided / private intake data
+data/applications/imported_applications.csv
+data/applications/uploaded_form_export.csv
+data/applications/uploaded_form_export.xlsx
+data/processed/recruiter_decisions.json
+
+# Ignore uploaded real resumes, keep demo resumes
+data/resumes/*
+!data/resumes/demo_*.pdf
+
+# Local real-world validation data
+test_data/
+"@
