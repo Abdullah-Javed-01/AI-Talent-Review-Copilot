@@ -48,61 +48,114 @@ BONUS_TECH = [
     "hugging face",
 ]
 
+# Section headings that should never count as demonstrated evidence by
+# themselves. Terms in these sections can still count as resume mentions via
+# the full normalized text, but they are excluded from contextual/body proof.
+EXCLUDED_SECTION_HEADINGS = {
+    "skills",
+    "technical skills",
+    "core skills",
+    "technologies",
+    "tools",
+    "certifications",
+    "certificates",
+    "licenses & certifications",
+    "licenses and certifications",
+}
+
+# Common headings used to tell the parser when an excluded section has ended.
+BODY_SECTION_HEADINGS = {
+    "professional summary",
+    "summary",
+    "profile",
+    "experience",
+    "work experience",
+    "professional experience",
+    "employment",
+    "projects",
+    "selected projects",
+    "project experience",
+    "education",
+    "leadership",
+    "leadership & awards",
+    "leadership and awards",
+    "awards",
+    "achievements",
+    "research",
+    "publications",
+    "volunteering",
+}
+
 
 def contains_any(text, terms):
     return any(term in text for term in terms)
 
 
+def _normalized_heading(line):
+    heading = re.sub(r"[^a-z0-9& ]+", "", line.lower()).strip()
+    return re.sub(r"\s+", " ", heading)
+
+
+def _is_heading(line, candidates):
+    normalized = _normalized_heading(line)
+    return normalized in candidates
+
+
 def split_resume_sections(text):
-    skills_text = ""
-    certificates_text = ""
+    skills_lines = []
+    certificate_lines = []
     body_lines = []
+    excluded_section = None
 
     for line in text.splitlines():
         cleaned = line.strip()
-
         if not cleaned:
             continue
 
         lowered = cleaned.lower()
 
-        if lowered.startswith("skills:"):
-            skills_text += " " + lowered
+        # Inline forms such as "Skills: Python, SQL" remain supported.
+        if lowered.startswith("skills:") or lowered.startswith("technical skills:"):
+            skills_lines.append(lowered)
+            excluded_section = None
+            continue
 
-        elif lowered.startswith("certificates:"):
-            certificates_text += " " + lowered
+        if lowered.startswith("certificates:") or lowered.startswith("certifications:"):
+            certificate_lines.append(lowered)
+            excluded_section = None
+            continue
 
-        else:
+        if _is_heading(cleaned, EXCLUDED_SECTION_HEADINGS):
+            normalized_heading = _normalized_heading(cleaned)
+            excluded_section = "certificates" if "certif" in normalized_heading or "license" in normalized_heading else "skills"
+            continue
+
+        if _is_heading(cleaned, BODY_SECTION_HEADINGS):
+            excluded_section = None
             body_lines.append(lowered)
+            continue
+
+        if excluded_section == "skills":
+            skills_lines.append(lowered)
+            continue
+
+        if excluded_section == "certificates":
+            certificate_lines.append(lowered)
+            continue
+
+        body_lines.append(lowered)
 
     return {
-        "skills": skills_text.strip(),
-        "certificates": certificates_text.strip(),
+        "skills": " ".join(skills_lines).strip(),
+        "certificates": " ".join(certificate_lines).strip(),
         "body": " ".join(body_lines),
     }
 
+
 def extract_body_sentences(text):
-    body_lines = []
-
-    for line in text.splitlines():
-        cleaned = line.strip()
-
-        if not cleaned:
-            continue
-
-        lowered = cleaned.lower()
-
-        if lowered.startswith("skills:"):
-            continue
-
-        if lowered.startswith("certificates:"):
-            continue
-
-        body_lines.append(cleaned)
-
-    # PDF extraction often breaks one sentence across
-    # multiple visual lines, so join them before splitting.
-    body_text = " ".join(body_lines)
+    # Reuse the same section-aware body filtering used for scoring so evidence
+    # snippets cannot accidentally come from a skills or certification list.
+    body_text = split_resume_sections(text)["body"]
 
     body_text = re.sub(
         r"\s+",
@@ -120,6 +173,7 @@ def extract_body_sentences(text):
         for sentence in sentences
         if sentence.strip()
     ]
+
 
 def find_evidence_snippets(
     sentences,
@@ -144,6 +198,9 @@ def find_evidence_snippets(
         "worked",
         "encoded",
         "selected",
+        "designed",
+        "deployed",
+        "analyzed",
     ]
 
     for sentence in sentences:
@@ -167,6 +224,7 @@ def find_evidence_snippets(
 
     return matches
 
+
 def extract_evidence(resume_text):
     normalized = re.sub(
         r"\s+",
@@ -175,7 +233,7 @@ def extract_evidence(resume_text):
     ).strip()
 
     sections = split_resume_sections(resume_text)
-    
+
     sentences = extract_body_sentences(
         resume_text
     )
@@ -426,7 +484,7 @@ def extract_evidence(resume_text):
         "evaluation_reasoning": evaluation_reasoning,
         "interface_or_deployment": interface_or_deployment,
     }
-    
+
     snippets = {
         "python": find_evidence_snippets(
             sentences,
@@ -536,6 +594,6 @@ def extract_evidence(resume_text):
             "mentioned": bonus_mentioned,
             "demonstrated": bonus_demonstrated,
         },
-        
+
         "snippets": snippets,
     }
